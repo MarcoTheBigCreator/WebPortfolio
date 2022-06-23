@@ -3,6 +3,10 @@ var tabla;
 function init() {
     mostrarform(false);
     listar();
+
+    $("#formulario").on("submit", function(e) {
+        guardaryeditar(e);
+    })
 }
 
 //Función limpiar

@@ -18,6 +18,7 @@ include 'header.php';
 
     <script src="../public/assets/js/bootbox.min.js"></script> 
     <script src="../public/assets/js/bootstrap-select.min.js"></script>  
+    <script src="../public/assets/js/bootstrap.js"></script>
 
 
     <div class="content-wrapper">        
@@ -36,7 +37,7 @@ include 'header.php';
                     <div class="panel-body table-responsive" id="listadoregistros">
                         <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                           <thead>
-                            <th>Id_geninfo</th>
+                            <th>Options</th>
                             <th>Description</th>
                             <th>Location</th>
                             <th>Current location</th>
@@ -54,6 +55,7 @@ include 'header.php';
                         <form name="formulario" id="formulario" method="POST">
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Description:</label>
+                            <input type="hidden" name="id_geninfo" id="id_geninfo">
                             <input type="input" class="form-control" name="description" id="description" >
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">

@@ -1,4 +1,5 @@
 <?php
+//Incluímos inicialmente la conexión a la base de datos
 require "../config/conexion.php";
 
 Class geninfo
@@ -6,6 +7,7 @@ Class geninfo
 	//Implementamos nuestro constructor
     public function __construct()
     {
+        
     }
 
 	//Método para insertar registros
@@ -19,8 +21,7 @@ Class geninfo
 	//Método para editar registros
     public function editar($id_geninfo, $description, $location, $clocation, $age, $gender)
     {
-        $sql = "UPDATE geninfo SET description = '$description', location= '$location, clocation= '$clocation', age = '$age', gender = '$gender'
-        WHERE id_geninfo = '$id_geninfo' ";
+        $sql = "UPDATE geninfo SET description= '$description', location= '$location', clocation= '$clocation', age = '$age', gender = '$gender' WHERE id_geninfo = '$id_geninfo' ";
         return ejecutarConsulta($sql);
     }
 	
