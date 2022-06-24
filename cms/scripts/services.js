@@ -1,42 +1,46 @@
-var tabla;
+var tabla8;
 
 function init() {
-    mostrarform(false);
-    listar();
+    mostrarform8(false);
+    listar8();
+
+    $("#formulario8").on("submit", function(e) {
+        guardaryeditar8(e);
+    })
 }
 
 //Función limpiar
-function limpiar() {
-    $("id_service").val("");
-    $("icon").val("");
-    $("service").val("");
-    $("description").val("");
+function limpiar8() {
+    $("#id_service").val("");
+    $("#icon").val("");
+    $("#service").val("");
+    $("#description").val("");
 }
 
 //Función mostrar formulario
-function mostrarform(flag) {
-    limpiar();
+function mostrarform8(flag) {
+    limpiar8();
     if (flag) {
-        $("#listadoregistros").hide();
-        $("#formularioregistros").show();
-        $("#btnGuardar").prop("disabled", false);
-        $("#btnagregar").hide();
+        $("#listadoregistros8").hide();
+        $("#formularioregistros8").show();
+        $("#btnGuardar8").prop("disabled", false);
+        $("#btnagregar8").hide();
     } else {
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
-        $("#btnagregar").show();
+        $("#listadoregistros8").show();
+        $("#formularioregistros8").hide();
+        $("#btnagregar8").show();
     }
 }
 
 //Función cancelarform
-function cancelarform() {
-    limpiar();
-    mostrarform(false);
+function cancelarform8() {
+    limpiar8();
+    mostrarform8(false);
 }
 
 //Función Listar
-function listar() {
-    tabla = $('#tbllistado').dataTable({
+function listar8() {
+    tabla8 = $('#tbllistado8').dataTable({
         "aProcessing": true, //Activamos el procesamiento del datatables
         "aServerSide": true, //Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip', //Definimos los elementos del control de tabla
@@ -47,7 +51,7 @@ function listar() {
             'pdf'
         ],
         "ajax": {
-            url: '../ajax/services.php?op=listar',
+            url: '../ajax/services.php?op=listar8',
             type: "get",
             dataType: "json",
             error: function(e) {
@@ -63,13 +67,13 @@ function listar() {
 }
 //Función para guardar o editar
 
-function guardaryeditar(e) {
+function guardaryeditar8(e) {
     e.preventDefault(); //No se activará la acción predeterminada del evento
-    $("#btnGuardar").prop("disabled", true);
-    var formData = new FormData($("#formulario")[0]);
+    $("#btnGuardar8").prop("disabled", true);
+    var formData = new FormData($("#formulario8")[0]);
 
     $.ajax({
-        url: "../ajax/services.php?op=guardaryeditar",
+        url: "../ajax/services.php?op=guardaryeditar8",
         type: "POST",
         data: formData,
         contentType: false,
@@ -77,23 +81,23 @@ function guardaryeditar(e) {
 
         success: function(datos) {
             bootbox.alert(datos);
-            mostrarform(false);
-            tabla.ajax.reload();
+            mostrarform8(false);
+            tabla8.ajax.reload();
         }
 
     });
-    limpiar();
+    limpiar8();
 }
 
-function mostrar(id_service) {
-    $.post("../ajax/services.php?op=mostrar", { id_service: id_service }, function(data, status) {
+function mostrar8(id_service) {
+    $.post("../ajax/services.php?op=mostrar8", { id_service: id_service }, function(data, status) {
         data = JSON.parse(data);
-        mostrarform(true);
+        mostrarform8(true);
 
-        $("id_service").val(data.id_service);
-        $("icon").val(data.icon);
-        $("service").val(data.service);
-        $("description").val(data.description);
+        $("#id_service").val(data.id_service);
+        $("#icon").val(data.icon);
+        $("#service").val(data.service);
+        $("#description").val(data.description);
     })
 }
 

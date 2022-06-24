@@ -9,34 +9,34 @@ $class=isset($_POST["class"])? limpiarCadena($_POST["class"]):"";
 $filter=isset($_POST["filter"])? limpiarCadena($_POST["filter"]):"";
 
 switch ($_GET["op"]){
-	case 'guardaryeditar':
+	case 'guardaryeditar2':
 
 		if (empty($id_datafilter)){
-			$rspta = $datafilter -> insertar($class, $filter);
+			$rspta = $datafilter -> insertar2($class, $filter);
             echo $rspta ? "data filter registered" : "data filter not registered";
 		}
 		else {
-            $rspta = $datafilter -> editar($id_datafilter, $class, $filter);
+            $rspta = $datafilter -> editar2($id_datafilter, $class, $filter);
             echo $rspta ? "data filter updated" : "data filter not updated";
 		}
 
     break;
 
-    case 'mostrar':
-		$rspta = $datafilter->mostrar($id_datafilter);
+    case 'mostrar2':
+		$rspta = $datafilter->mostrar2($id_datafilter);
  		//Codificar el resultado utilizando json
         echo json_encode($rspta);
         break;
 	break;
 
-	case 'listar':
-		$rspta=$datafilter->listar();
+	case 'listar2':
+		$rspta=$datafilter->listar2();
  		//Vamos a declarar un array
         $data= Array();
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>$reg->id_datafilter,
+                "0"=>'<button class="btn btn-warning" onclick="mostrar2('.$reg->id_datafilter.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->class,
                 "2"=>$reg->filter
                 );

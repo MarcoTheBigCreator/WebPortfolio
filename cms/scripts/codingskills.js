@@ -1,48 +1,52 @@
-var tabla;
+var tabla1;
 
 function init() {
-    mostrarform(false);
-    listar();
+    mostrarform1(false);
+    listar1();
+
+    $("#formulario1").on("submit", function(e) {
+        guardaryeditar1(e);
+    })
 }
 
 //Función limpiar
-function limpiar() {
-    $("id_codingskill").val("");
-    $("language").val("");
-    $("percentage").val("");
+function limpiar1() {
+    $("#id_codingskill").val("");
+    $("#language").val("");
+    $("#percentage").val("");
 }
 
 //Función mostrar formulario
-function mostrarform(flag) {
-    limpiar();
+function mostrarform1(flag) {
+    limpiar1();
     if (flag) {
-        $("#listadoregistros").hide();
-        $("#formularioregistros").show();
-        $("#btnGuardar").prop("disabled", false);
-        $("#btnagregar").hide();
+        $("#listadoregistros1").hide();
+        $("#formularioregistros1").show();
+        $("#btnGuardar1").prop("disabled1", false);
+        $("#btnagregar1").hide();
     } else {
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
-        $("#btnagregar").show();
+        $("#listadoregistros1").show();
+        $("#formularioregistros1").hide();
+        $("#btnagregar1").show();
     }
 }
 
 //Función cancelarform
-function cancelarform() {
-    limpiar();
-    mostrarform(false);
+function cancelarform1() {
+    limpiar1();
+    mostrarform1(false);
 }
 
 //Función Listar
-function listar() {
-    tabla = $("#tbllistado")
+function listar1() {
+    tabla1 = $("#tbllistado1")
         .dataTable({
             aProcessing: true, //Activamos el procesamiento del datatables
             aServerSide: true, //Paginación y filtrado realizados por el servidor
             dom: "Bfrtip", //Definimos los elementos del control de tabla
             buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdf"],
             ajax: {
-                url: "../ajax/codingskills.php?op=listar",
+                url: "../ajax/codingskills.php?op=listar1",
                 type: "get",
                 dataType: "json",
                 error: function(e) {
@@ -59,13 +63,13 @@ function listar() {
 }
 //Función para guardar o editar
 
-function guardaryeditar(e) {
+function guardaryeditar1(e) {
     e.preventDefault(); //No se activará la acción predeterminada del evento
-    $("#btnGuardar").prop("disabled", true);
-    var formData = new FormData($("#formulario")[0]);
+    $("#btnGuardar1").prop("disabled", true);
+    var formData = new FormData($("#formulario1")[0]);
 
     $.ajax({
-        url: "../ajax/codingskills.php?op=guardaryeditar",
+        url: "../ajax/codingskills.php?op=guardaryeditar1",
         type: "POST",
         data: formData,
         contentType: false,
@@ -73,23 +77,23 @@ function guardaryeditar(e) {
 
         success: function(datos) {
             bootbox.alert(datos);
-            mostrarform(false);
-            tabla.ajax.reload();
+            mostrarform1(false);
+            tabla1.ajax.reload();
         },
     });
-    limpiar();
+    limpiar1();
 }
 
-function mostrar(id_codingskill) {
+function mostrar1(id_codingskill) {
     $.post(
-        "../ajax/codingskills.php?op=mostrar", { id_codingskill: id_codingskill },
+        "../ajax/codingskills.php?op=mostrar1", { id_codingskill: id_codingskill },
         function(data, status) {
             data = JSON.parse(data);
-            mostrarform(true);
+            mostrarform1(true);
 
-            $("id_codingskill").val(data.id_codingskill);
-            $("language").val(data.language);
-            $("percentage").val(data.percentage);
+            $("#id_codingskill").val(data.id_codingskill);
+            $("#language").val(data.language);
+            $("#percentage").val(data.percentage);
         }
     );
 }

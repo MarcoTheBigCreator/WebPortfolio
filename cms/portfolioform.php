@@ -41,22 +41,22 @@ include 'nav.php';
           <div class="col-md-12">
             <div class="box">
               <div class="box-header with-border">
-                <h1 class="box-title">General Information<button class="btn btn-success" id="btnagregar6" onclick="mostrarform6(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
+                <h1 class="box-title">Education<button class="btn btn-success" id="btnagregar7" onclick="mostrarform7(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
                 </h1>
                 <div class="box-tools pull-right">
                 </div>
               </div>
               <!-- /.box-header -->
               <!-- centro -->
-              <div class="panel-body table-responsive" id="listadoregistros6">
-                <table id="tbllistado6" class="table table-striped table-bordered table-condensed table-hover">
+              <div class="panel-body table-responsive" id="listadoregistros7">
+                <table id="tbllistado7" class="table table-striped table-bordered table-condensed table-hover">
                   <thead>
                     <th>Options</th>
+                    <th>Class</th>
+                    <th>Link</th>
+                    <th>ImgRoute</th>
+                    <th>Name</th>
                     <th>Description</th>
-                    <th>Location</th>
-                    <th>Current Location</th>
-                    <th>Age</th>
-                    <th>Gender</th>
                   </thead>
                   <tbody>
                   </tbody>
@@ -65,34 +65,34 @@ include 'nav.php';
                   </tfoot>
                 </table>
               </div>
-              <div class="panel-body" style="height: 400px;" id="formularioregistros6">
-                <form name="formulario6" id="formulario6" method="POST">
+              <div class="panel-body" style="height: 400px;" id="formularioregistros7">
+                <form name="formulario7" id="formulario7" method="POST">
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Description:</label>
-                    <input type="input" class="form-control" name="description" id="description">
-                    <input type="hidden" name="id_geninfo" id="id_geninfo">
+                    <label>Class:</label>
+                    <input type="input" class="form-control" name="class" id="class">
+                    <input type="hidden" name="id_portfolio" id="id_portfolio">
                     
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Location:</label>
-                    <input type="input" class="form-control" name="location" id="location">
+                    <label>Link:</label>
+                    <input type="input" class="form-control" name="link" id="link">
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Current Location:</label>
-                    <input type="input" class="form-control" name="clocation" id="clocation">
+                    <label>ImgRoute:</label>
+                    <input type="input" class="form-control" name="imgroute" id="imgroute">
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Age:</label>
-                    <input type="input" class="form-control" name="age" id="age">
+                    <label>Name:</label>
+                    <input type="input" class="form-control" name="name" id="name">
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Gender:</label>
-                    <input type="input" class="form-control" name="gender" id="gender">
+                    <label>Description:</label>
+                    <input type="input" class="form-control" name="description" id="description">
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <button class="btn btn-primary" type="submit" id="btnGuardar6"><i class="fa fa-save"></i> Guardar</button>
+                    <button class="btn btn-primary" type="submit" id="btnGuardar7"><i class="fa fa-save"></i> Guardar</button>
 
-                    <button class="btn btn-danger" onclick="cancelarform6()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+                    <button class="btn btn-danger" onclick="cancelarform7()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                   </div>
                 </form>
               </div>
@@ -115,7 +115,7 @@ include 'nav.php';
 
 
   </section>
-  <script type="text/javascript" src="scripts/geninfo.js"></script>
+  <script type="text/javascript" src="scripts/portfolio.js"></script>
 </body>
 
 </html>

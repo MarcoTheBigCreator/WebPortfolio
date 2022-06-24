@@ -9,7 +9,7 @@ Class experience
     }
 
 	//Método para insertar registros
-    public function insertar($date, $title, $namejob, $description)
+    public function insertar5($date, $title, $namejob, $description)
     {
         $sql = "INSERT INTO experience (date, title, namejob, description)
         VALUES ('$date', '$title', '$namejob', '$description')";
@@ -17,7 +17,7 @@ Class experience
     }
 
 	//Método para editar registros
-    public function editar($id_experience, $date, $title, $namejob, $description)
+    public function editar5($id_experience, $date, $title, $namejob, $description)
     {
         $sql = "UPDATE experience SET date = '$date', title = '$title', namejob = '$namejob', description ='$description'
         WHERE id_experience = '$id_experience' ";
@@ -25,14 +25,14 @@ Class experience
     }
 	
 	//Método para mostrar registros
-    public function mostrar($id_experience)
+    public function mostrar5($id_experience)
     {
         $sql = "SELECT*FROM experience WHERE id_experience = '$id_experience'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
 	//Método para listar registros
-    public function listar()
+    public function listar5()
     {
         $sql = "SELECT*FROM experience";
         return ejecutarCOnsulta($sql);

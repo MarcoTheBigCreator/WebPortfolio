@@ -61,7 +61,7 @@ include 'header.php';
             <div class="row">
                 <div class="col-lg-4 py-3">
                     <div class="img-place wow fadeInUp">
-                        <img src="../public/assets/img/profile.jpg" alt="">
+                        <img src="../public/assets/img/profile.jpg " alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1 wow fadeInRight">

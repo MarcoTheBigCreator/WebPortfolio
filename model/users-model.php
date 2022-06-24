@@ -9,7 +9,7 @@ Class users
     }
 
 	//Método para insertar registros
-    public function insertar($name, $nickname, $pass, $type)
+    public function insertar9($name, $nickname, $pass, $type)
     {
         $sql = "INSERT INTO users (name, nickname, pass, type)
         VALUES ('$name', '$nickname', '$pass', '$type')";
@@ -17,7 +17,7 @@ Class users
     }
 
 	//Método para editar registros
-    public function editar($id_user, $name, $nickname, $pass, $type)
+    public function editar9($id_user, $name, $nickname, $pass, $type)
     {
         $sql = "UPDATE users SET name = '$name', nickname = '$nickname', pass = '$pass', type = '$type'
         WHERE id_user = '$id_user' ";
@@ -25,14 +25,14 @@ Class users
     }
 	
 	//Método para mostrar registros
-    public function mostrar($id_user)
+    public function mostrar9($id_user)
     {
         $sql = "SELECT*FROM users WHERE id_user = '$id_user'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
 	//Método para listar registros
-    public function listar()
+    public function listar9()
     {
         $sql = "SELECT*FROM users";
         return ejecutarCOnsulta($sql);

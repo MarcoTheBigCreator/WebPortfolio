@@ -11,24 +11,10 @@
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a href="#home" class="nav-link" data-animate="scrolling">Home</a>
+                            <a href="http://localhost/WebPortfolio/views/index.php" class="nav-link" data-animate="scrolling">Home Page</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#about" class="nav-link" data-animate="scrolling">About me</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#portfolio" class="nav-link" data-animate="scrolling">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link" data-animate="scrolling">Contact me</a>
-                        </li>
-                    </ul>
-                    <ul class="nav ml-auto">
-                        <li class="nav-item">
-                            <button class="btn btn-fab btn-theme no-shadow">Es</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn btn-fab btn-theme no-shadow">En</button>
+                            <a href="#" class="nav-link" data-animate="scrolling">Exit</a>
                         </li>
                     </ul>
                 </div>

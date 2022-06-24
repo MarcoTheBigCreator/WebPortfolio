@@ -10,7 +10,7 @@
                         <!-- Grid column -->
                         <div class="col-md-2">
                             <h6>
-                                <a class="nav-link text-white" href="#home" data-animate="scrolling">Home</a>
+                                <a class="nav-link text-white" href="http://localhost/WebPortfolio/views/index.php" data-animate="scrolling">Home Page</a>
                             </h6>
                         </div>
                         <!-- Grid column -->
@@ -18,23 +18,7 @@
                         <!-- Grid column -->
                         <div class="col-md-2">
                             <h6>
-                                <a class="nav-link text-white" href="#about" data-animate="scrolling">About me</a>
-                            </h6>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-2">
-                            <h6>
-                                <a class="nav-link text-white" href="#portfolio" data-animate="scrolling">Portfolio</a>
-                            </h6>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-2">
-                            <h6>
-                                <a class="nav-link text-white" href="#contact" data-animate="scrolling">Contact me</a>
+                                <a class="nav-link text-white" href="#" data-animate="scrolling">Exit</a>
                             </h6>
                         </div>
                         <!-- Grid column -->

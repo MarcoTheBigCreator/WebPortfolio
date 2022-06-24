@@ -9,34 +9,34 @@ $skill=isset($_POST["skill"])? limpiarCadena($_POST["skill"]):"";
 $percentage=isset($_POST["percentage"])? limpiarCadena($_POST["percentage"]):"";
 
 switch ($_GET["op"]){
-	case 'guardaryeditar':
+	case 'guardaryeditar3':
 
 		if (empty($id_designskill)){
-			$rspta = $designskills -> insertar($skill, $percentage);
+			$rspta = $designskills -> insertar3($skill, $percentage);
             echo $rspta ? "design skill registered" : "design skill not registered";
 		}
 		else {
-            $rspta = $designskills -> editar($id_designskill, $skill, $percentage);
+            $rspta = $designskills -> editar3($id_designskill, $skill, $percentage);
             echo $rspta ? "design skill updated" : "design skill not updated";
 		}
 
     break;
 
-    case 'mostrar':
-		$rspta = $designskills->mostrar($id_designskill);
+    case 'mostrar3':
+		$rspta = $designskills->mostrar3($id_designskill);
  		//Codificar el resultado utilizando json
         echo json_encode($rspta);
         break;
 	break;
 
-	case 'listar':
-		$rspta=$designskills->listar();
+	case 'listar3':
+		$rspta=$designskills->listar3();
  		//Vamos a declarar un array
         $data= Array();
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>$reg->id_designskill,
+                "0"=>'<button class="btn btn-warning" onclick="mostrar3('.$reg->id_designskill.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->skill,
                 "2"=>$reg->percentage
                 );

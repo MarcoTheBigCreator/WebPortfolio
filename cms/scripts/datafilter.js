@@ -1,41 +1,45 @@
-var tabla;
+var tabla2;
 
 function init() {
-    mostrarform(false);
-    listar();
+    mostrarform2(false);
+    listar2();
+
+    $("#formulario2").on("submit", function(e) {
+        guardaryeditar2(e);
+    })
 }
 
 //Función limpiar
-function limpiar() {
-    $("id_datafilter").val("");
-    $("class").val("");
-    $("filter").val("");
+function limpiar2() {
+    $("#id_datafilter").val("");
+    $("#class").val("");
+    $("#filter").val("");
 }
 
 //Función mostrar formulario
-function mostrarform(flag) {
-    limpiar();
+function mostrarform2(flag) {
+    limpiar2();
     if (flag) {
-        $("#listadoregistros").hide();
-        $("#formularioregistros").show();
-        $("#btnGuardar").prop("disabled", false);
-        $("#btnagregar").hide();
+        $("#listadoregistros2").hide();
+        $("#formularioregistros2").show();
+        $("#btnGuardar2").prop("disabled", false);
+        $("#btnagregar2").hide();
     } else {
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
-        $("#btnagregar").show();
+        $("#listadoregistros2").show();
+        $("#formularioregistros2").hide();
+        $("#btnagregar2").show();
     }
 }
 
 //Función cancelarform
-function cancelarform() {
-    limpiar();
-    mostrarform(false);
+function cancelarform2() {
+    limpiar2();
+    mostrarform2(false);
 }
 
 //Función Listar
-function listar() {
-    tabla = $('#tbllistado').dataTable({
+function listar2() {
+    tabla2 = $('#tbllistado2').dataTable({
         "aProcessing": true, //Activamos el procesamiento del datatables
         "aServerSide": true, //Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip', //Definimos los elementos del control de tabla
@@ -46,7 +50,7 @@ function listar() {
             'pdf'
         ],
         "ajax": {
-            url: '../ajax/datafilter.php?op=listar',
+            url: '../ajax/datafilter.php?op=listar2',
             type: "get",
             dataType: "json",
             error: function(e) {
@@ -62,13 +66,13 @@ function listar() {
 }
 //Función para guardar o editar
 
-function guardaryeditar(e) {
+function guardaryeditar2(e) {
     e.preventDefault(); //No se activará la acción predeterminada del evento
-    $("#btnGuardar").prop("disabled", true);
-    var formData = new FormData($("#formulario")[0]);
+    $("#btnGuardar2").prop("disabled", true);
+    var formData = new FormData($("#formulario2")[0]);
 
     $.ajax({
-        url: "../ajax/datafilter.php?op=guardaryeditar",
+        url: "../ajax/datafilter.php?op=guardaryeditar2",
         type: "POST",
         data: formData,
         contentType: false,
@@ -76,22 +80,22 @@ function guardaryeditar(e) {
 
         success: function(datos) {
             bootbox.alert(datos);
-            mostrarform(false);
-            tabla.ajax.reload();
+            mostrarform2(false);
+            tabla2.ajax.reload();
         }
 
     });
-    limpiar();
+    limpiar2();
 }
 
-function mostrar(id_datafilter) {
-    $.post("../ajax/datafilter.php?op=mostrar", { id_datafilter: id_datafilter }, function(data, status) {
+function mostrar2(id_datafilter) {
+    $.post("../ajax/datafilter.php?op=mostrar2", { id_datafilter: id_datafilter }, function(data, status) {
         data = JSON.parse(data);
-        mostrarform(true);
+        mostrarform2(true);
 
-        $("id_datafilter").val(data.id_datafilter);
-        $("class").val(data.class);
-        $("filter").val(data.filter);
+        $("#id_datafilter").val(data.id_datafilter);
+        $("#class").val(data.class);
+        $("#filter").val(data.filter);
     })
 }
 

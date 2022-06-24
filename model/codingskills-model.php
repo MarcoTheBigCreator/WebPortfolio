@@ -9,30 +9,30 @@ Class codingskills
     }
 
 	//Método para insertar registros
-    public function insertar($language, $percentage)
+    public function insertar1($language, $percentage)
     {
-        $sql = "INSERT INTO categoria (language, percentage)
+        $sql = "INSERT INTO codingskills (language, percentage)
         VALUES ('$language', '$percentage')";
         return ejecutarConsulta($sql);
     }
 
 	//Método para editar registros
-    public function editar($id_codingskill, $language, $percentage)
+    public function editar1($id_codingskill, $language, $percentage)
     {
-        $sql = "UPDATE categoria SET language = '$language', percentage= '$percentage'
+        $sql = "UPDATE codingskills SET language = '$language', percentage= '$percentage'
         WHERE id_codingskill = '$id_codingskill' ";
         return ejecutarConsulta($sql);
     }
 	
 	//Método para mostrar registros
-    public function mostrar($id_codingskill)
+    public function mostrar1($id_codingskill)
     {
-        $sql = "SELECT*FROM categoria WHERE id_codingskill = '$id_codingskill'";
+        $sql = "SELECT*FROM codingskills WHERE id_codingskill = '$id_codingskill'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
 	//Método para listar registros
-    public function listar()
+    public function listar1()
     {
         $sql = "SELECT*FROM codingskills";
         return ejecutarCOnsulta($sql);

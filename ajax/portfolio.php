@@ -12,34 +12,34 @@ $name=isset($_POST["name"])? limpiarCadena($_POST["name"]):"";
 $description=isset($_POST["description"])? limpiarCadena($_POST["description"]):"";
 
 switch ($_GET["op"]){
-	case 'guardaryeditar':
+	case 'guardaryeditar7':
 
 		if (empty($id_portfolio)){
-			$rspta = $portfolio -> insertar($class, $link, $imgroute, $name, $description);
+			$rspta = $portfolio -> insertar7($class, $link, $imgroute, $name, $description);
             echo $rspta ? "portfolio registered" : "portfolio not registered";
 		}
 		else {
-            $rspta = $portfolio -> editar($id_portfolio, $class, $link, $imgroute, $name, $description);
+            $rspta = $portfolio -> editar7($id_portfolio, $class, $link, $imgroute, $name, $description);
             echo $rspta ? "portfolio updated" : "portfolio not updated";
 		}
 
     break;
 
-    case 'mostrar':
-		$rspta = $portfolio->mostrar($id_portfolio);
+    case 'mostrar7':
+		$rspta = $portfolio->mostrar7($id_portfolio);
  		//Codificar el resultado utilizando json
         echo json_encode($rspta);
         break;
 	break;
 
-	case 'listar':
-		$rspta=$portfolio->listar();
+	case 'listar7':
+		$rspta=$portfolio->listar7();
  		//Vamos a declarar un array
         $data= Array();
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>$reg->id_portfolio,
+                "0"=>'<button class="btn btn-warning" onclick="mostrar7('.$reg->id_portfolio.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->class,
                 "2"=>$reg->link,
                 "3"=>$reg->imgroute,

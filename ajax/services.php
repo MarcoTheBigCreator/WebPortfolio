@@ -10,34 +10,34 @@ $service=isset($_POST["service"])? limpiarCadena($_POST["service"]):"";
 $description=isset($_POST["description"])? limpiarCadena($_POST["description"]):"";
 
 switch ($_GET["op"]){
-	case 'guardaryeditar':
+	case 'guardaryeditar8':
 
 		if (empty($id_service)){
-			$rspta = $services -> insertar($icon, $service, $description);
+			$rspta = $services -> insertar8($icon, $service, $description);
             echo $rspta ? "service registered" : "service not registered";
 		}
 		else {
-            $rspta = $services -> editar($id_service, $icon, $service, $description);
+            $rspta = $services -> editar8($id_service, $icon, $service, $description);
             echo $rspta ? "service updated" : "service not updated";
 		}
 
     break;
 
-    case 'mostrar':
-		$rspta = $services->mostrar($id_service);
+    case 'mostrar8':
+		$rspta = $services->mostrar8($id_service);
  		//Codificar el resultado utilizando json
         echo json_encode($rspta);
         break;
 	break;
 
-	case 'listar':
-		$rspta=$services->listar();
+	case 'listar8':
+		$rspta=$services->listar8();
  		//Vamos a declarar un array
         $data= Array();
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>$reg->id_service,
+                "0"=>'<button class="btn btn-warning" onclick="mostrar8('.$reg->id_service.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->icon,
                 "2"=>$reg->service,
                 "3"=>$reg->description

@@ -11,34 +11,34 @@ $nameschool=isset($_POST["nameschool"])? limpiarCadena($_POST["nameschool"]):"";
 $description=isset($_POST["description"])? limpiarCadena($_POST["description"]):"";
 
 switch ($_GET["op"]){
-	case 'guardaryeditar':
+	case 'guardaryeditar4':
 
 		if (empty($id_education)){
-			$rspta = $education -> insertar($date, $title, $nameschool, $description);
+			$rspta = $education -> insertar4($date, $title, $nameschool, $description);
             echo $rspta ? "education registered" : "education not registered";
 		}
 		else {
-            $rspta = $education -> editar($id_education, $date, $title, $nameschool, $description);
+            $rspta = $education -> editar4($id_education, $date, $title, $nameschool, $description);
             echo $rspta ? "education updated" : "education not updated";
 		}
 
     break;
 
-    case 'mostrar':
-		$rspta = $education->mostrar($id_education);
+    case 'mostrar4':
+		$rspta = $education->mostrar4($id_education);
  		//Codificar el resultado utilizando json
         echo json_encode($rspta);
         break;
 	break;
 
-	case 'listar':
-		$rspta=$education->listar();
+	case 'listar4':
+		$rspta=$education->listar4();
  		//Vamos a declarar un array
         $data= Array();
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>$reg->id_education,
+                "0"=>'<button class="btn btn-warning" onclick="mostrar4('.$reg->id_education.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->date,
                 "2"=>$reg->title,
                 "3"=>$reg->nameschool,

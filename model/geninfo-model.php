@@ -11,7 +11,7 @@ Class geninfo
     }
 
 	//Método para insertar registros
-    public function insertar($description, $location, $clocation, $age, $gender)
+    public function insertar6($description, $location, $clocation, $age, $gender)
     {
         $sql = "INSERT INTO geninfo (description, location, clocation, age, gender)
         VALUES ('$description', '$location', '$clocation', '$age', '$gender')";
@@ -19,21 +19,21 @@ Class geninfo
     }
 
 	//Método para editar registros
-    public function editar($id_geninfo, $description, $location, $clocation, $age, $gender)
+    public function editar6($id_geninfo, $description, $location, $clocation, $age, $gender)
     {
         $sql = "UPDATE geninfo SET description= '$description', location= '$location', clocation= '$clocation', age = '$age', gender = '$gender' WHERE id_geninfo = '$id_geninfo' ";
         return ejecutarConsulta($sql);
     }
 	
 	//Método para mostrar registros
-    public function mostrar($id_geninfo)
+    public function mostrar6($id_geninfo)
     {
         $sql = "SELECT*FROM geninfo WHERE id_geninfo = '$id_geninfo'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
 	//Método para listar registros
-    public function listar()
+    public function listar6()
     {
         $sql = "SELECT*FROM geninfo";
         return ejecutarCOnsulta($sql);

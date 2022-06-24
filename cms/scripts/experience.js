@@ -1,43 +1,47 @@
-var tabla;
+var tabla5;
 
 function init() {
-    mostrarform(false);
-    listar();
+    mostrarform5(false);
+    listar5();
+
+    $("#formulario5").on("submit", function(e) {
+        guardaryeditar5(e);
+    })
 }
 
 //Función limpiar
-function limpiar() {
-    $("id_experience").val("");
-    $("date").val("");
-    $("title").val("");
-    $("namejob").val("");
-    $("description").val("");
+function limpiar5() {
+    $("#id_experience").val("");
+    $("#date").val("");
+    $("#title").val("");
+    $("#namejob").val("");
+    $("#description").val("");
 }
 
 //Función mostrar formulario
-function mostrarform(flag) {
-    limpiar();
+function mostrarform5(flag) {
+    limpiar5();
     if (flag) {
-        $("#listadoregistros").hide();
-        $("#formularioregistros").show();
-        $("#btnGuardar").prop("disabled", false);
-        $("#btnagregar").hide();
+        $("#listadoregistros5").hide();
+        $("#formularioregistros5").show();
+        $("#btnGuardar5").prop("disabled", false);
+        $("#btnagregar5").hide();
     } else {
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
-        $("#btnagregar").show();
+        $("#listadoregistros5").show();
+        $("#formularioregistros5").hide();
+        $("#btnagregar5").show();
     }
 }
 
 //Función cancelarform
-function cancelarform() {
-    limpiar();
-    mostrarform(false);
+function cancelarform5() {
+    limpiar5();
+    mostrarform5(false);
 }
 
 //Función Listar
-function listar() {
-    tabla = $('#tbllistado').dataTable({
+function listar5() {
+    tabla5 = $('#tbllistado5').dataTable({
         "aProcessing": true, //Activamos el procesamiento del datatables
         "aServerSide": true, //Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip', //Definimos los elementos del control de tabla
@@ -48,7 +52,7 @@ function listar() {
             'pdf'
         ],
         "ajax": {
-            url: '../ajax/experience.php?op=listar',
+            url: '../ajax/experience.php?op=listar5',
             type: "get",
             dataType: "json",
             error: function(e) {
@@ -64,13 +68,13 @@ function listar() {
 }
 //Función para guardar o editar
 
-function guardaryeditar(e) {
+function guardaryeditar5(e) {
     e.preventDefault(); //No se activará la acción predeterminada del evento
-    $("#btnGuardar").prop("disabled", true);
-    var formData = new FormData($("#formulario")[0]);
+    $("#btnGuardar5").prop("disabled", true);
+    var formData = new FormData($("#formulario5")[0]);
 
     $.ajax({
-        url: "../ajax/experience.php?op=guardaryeditar",
+        url: "../ajax/experience.php?op=guardaryeditar5",
         type: "POST",
         data: formData,
         contentType: false,
@@ -78,24 +82,24 @@ function guardaryeditar(e) {
 
         success: function(datos) {
             bootbox.alert(datos);
-            mostrarform(false);
-            tabla.ajax.reload();
+            mostrarform5(false);
+            tabla5.ajax.reload();
         }
 
     });
-    limpiar();
+    limpiar5();
 }
 
-function mostrar(id_experience) {
-    $.post("../ajax/experience.php?op=mostrar", { id_experience: id_experience }, function(data, status) {
+function mostrar5(id_experience) {
+    $.post("../ajax/experience.php?op=mostrar5", { id_experience: id_experience }, function(data, status) {
         data = JSON.parse(data);
-        mostrarform(true);
+        mostrarform5(true);
 
-        $("id_experience").val(data.id_experience);
-        $("date").val(data.date);
-        $("title").val(data.title);
-        $("namejob").val(data.namejob);
-        $("description").val(data.description);
+        $("#id_experience").val(data.id_experience);
+        $("#date").val(data.date);
+        $("#title").val(data.title);
+        $("#namejob").val(data.namejob);
+        $("#description").val(data.description);
     })
 }
 

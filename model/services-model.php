@@ -9,7 +9,7 @@ Class services
     }
 
 	//Método para insertar registros
-    public function insertar($icon, $service, $description)
+    public function insertar8($icon, $service, $description)
     {
         $sql = "INSERT INTO services (icon, service, description)
         VALUES ('$icon', '$service', '$description')";
@@ -17,7 +17,7 @@ Class services
     }
 
 	//Método para editar registros
-    public function editar($id_service, $icon, $service, $description)
+    public function editar8($id_service, $icon, $service, $description)
     {
         $sql = "UPDATE services SET icon = '$icon', service = '$service', description ='$description'
         WHERE id_service = '$id_service' ";
@@ -25,14 +25,14 @@ Class services
     }
 	
 	//Método para mostrar registros
-    public function mostrar($id_service)
+    public function mostrar8($id_service)
     {
         $sql = "SELECT*FROM services WHERE id_service = '$id_service'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
 	//Método para listar registros
-    public function listar()
+    public function listar8()
     {
         $sql = "SELECT*FROM services";
         return ejecutarCOnsulta($sql);

@@ -41,58 +41,42 @@ include 'nav.php';
           <div class="col-md-12">
             <div class="box">
               <div class="box-header with-border">
-                <h1 class="box-title">General Information<button class="btn btn-success" id="btnagregar6" onclick="mostrarform6(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
+                <h1 class="box-title">Data Filter<button class="btn btn-success" id="btnagregar2" onclick="mostrarform2(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
                 </h1>
                 <div class="box-tools pull-right">
                 </div>
               </div>
               <!-- /.box-header -->
               <!-- centro -->
-              <div class="panel-body table-responsive" id="listadoregistros6">
-                <table id="tbllistado6" class="table table-striped table-bordered table-condensed table-hover">
+              <div class="panel-body table-responsive" id="listadoregistros2">
+                <table id="tbllistado2" class="table table-striped table-bordered table-condensed table-hover">
                   <thead>
                     <th>Options</th>
-                    <th>Description</th>
-                    <th>Location</th>
-                    <th>Current Location</th>
-                    <th>Age</th>
-                    <th>Gender</th>
+                    <th>Class</th>
+                    <th>Filter</th>
                   </thead>
                   <tbody>
                   </tbody>
                   <tfoot>
-
                   </tfoot>
                 </table>
               </div>
-              <div class="panel-body" style="height: 400px;" id="formularioregistros6">
-                <form name="formulario6" id="formulario6" method="POST">
+              <div class="panel-body" style="height: 400px;" id="formularioregistros2">
+                <form name="formulario2" id="formulario2" method="POST">
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Description:</label>
-                    <input type="input" class="form-control" name="description" id="description">
-                    <input type="hidden" name="id_geninfo" id="id_geninfo">
+                    <label>Class:</label>
+                    <input type="input" class="form-control" name="class" id="class">
+                    <input type="hidden" name="id_datafilter" id="id_datafilter">
                     
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Location:</label>
-                    <input type="input" class="form-control" name="location" id="location">
-                  </div>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Current Location:</label>
-                    <input type="input" class="form-control" name="clocation" id="clocation">
-                  </div>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Age:</label>
-                    <input type="input" class="form-control" name="age" id="age">
-                  </div>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Gender:</label>
-                    <input type="input" class="form-control" name="gender" id="gender">
+                    <label>Filter:</label>
+                    <input type="input" class="form-control" name="filter" id="filter">
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <button class="btn btn-primary" type="submit" id="btnGuardar6"><i class="fa fa-save"></i> Guardar</button>
+                    <button class="btn btn-primary" type="submit" id="btnGuardar2"><i class="fa fa-save"></i> Guardar</button>
 
-                    <button class="btn btn-danger" onclick="cancelarform6()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+                    <button class="btn btn-danger" onclick="cancelarform2()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                   </div>
                 </form>
               </div>
@@ -115,7 +99,7 @@ include 'nav.php';
 
 
   </section>
-  <script type="text/javascript" src="scripts/geninfo.js"></script>
+  <script type="text/javascript" src="scripts/datafilter.js"></script>
 </body>
 
 </html>

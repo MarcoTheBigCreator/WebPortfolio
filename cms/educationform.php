@@ -41,22 +41,21 @@ include 'nav.php';
           <div class="col-md-12">
             <div class="box">
               <div class="box-header with-border">
-                <h1 class="box-title">General Information<button class="btn btn-success" id="btnagregar6" onclick="mostrarform6(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
+                <h1 class="box-title">Education<button class="btn btn-success" id="btnagregar4" onclick="mostrarform4(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
                 </h1>
                 <div class="box-tools pull-right">
                 </div>
               </div>
               <!-- /.box-header -->
               <!-- centro -->
-              <div class="panel-body table-responsive" id="listadoregistros6">
-                <table id="tbllistado6" class="table table-striped table-bordered table-condensed table-hover">
+              <div class="panel-body table-responsive" id="listadoregistros4">
+                <table id="tbllistado4" class="table table-striped table-bordered table-condensed table-hover">
                   <thead>
                     <th>Options</th>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>NameSchool</th>
                     <th>Description</th>
-                    <th>Location</th>
-                    <th>Current Location</th>
-                    <th>Age</th>
-                    <th>Gender</th>
                   </thead>
                   <tbody>
                   </tbody>
@@ -65,34 +64,30 @@ include 'nav.php';
                   </tfoot>
                 </table>
               </div>
-              <div class="panel-body" style="height: 400px;" id="formularioregistros6">
-                <form name="formulario6" id="formulario6" method="POST">
+              <div class="panel-body" style="height: 400px;" id="formularioregistros4">
+                <form name="formulario4" id="formulario4" method="POST">
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Description:</label>
-                    <input type="input" class="form-control" name="description" id="description">
-                    <input type="hidden" name="id_geninfo" id="id_geninfo">
+                    <label>Date:</label>
+                    <input type="input" class="form-control" name="date" id="date">
+                    <input type="hidden" name="id_education" id="id_education">
                     
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Location:</label>
-                    <input type="input" class="form-control" name="location" id="location">
+                    <label>Title:</label>
+                    <input type="input" class="form-control" name="title" id="title">
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Current Location:</label>
-                    <input type="input" class="form-control" name="clocation" id="clocation">
+                    <label>NameSchool:</label>
+                    <input type="input" class="form-control" name="nameschool" id="nameschool">
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Age:</label>
-                    <input type="input" class="form-control" name="age" id="age">
-                  </div>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Gender:</label>
-                    <input type="input" class="form-control" name="gender" id="gender">
+                    <label>Description:</label>
+                    <input type="input" class="form-control" name="description" id="description">
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <button class="btn btn-primary" type="submit" id="btnGuardar6"><i class="fa fa-save"></i> Guardar</button>
+                    <button class="btn btn-primary" type="submit" id="btnGuardar4"><i class="fa fa-save"></i> Guardar</button>
 
-                    <button class="btn btn-danger" onclick="cancelarform6()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+                    <button class="btn btn-danger" onclick="cancelarform4()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                   </div>
                 </form>
               </div>
@@ -115,7 +110,7 @@ include 'nav.php';
 
 
   </section>
-  <script type="text/javascript" src="scripts/geninfo.js"></script>
+  <script type="text/javascript" src="scripts/education.js"></script>
 </body>
 
 </html>

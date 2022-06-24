@@ -1,44 +1,48 @@
-var tabla;
+var tabla7;
 
 function init() {
-    mostrarform(false);
-    listar();
+    mostrarform7(false);
+    listar7();
+
+    $("#formulario7").on("submit", function(e) {
+        guardaryeditar7(e);
+    })
 }
 
 //Función limpiar
-function limpiar() {
-    $("id_portfolio").val("");
-    $("class").val("");
-    $("link").val("");
-    $("imgroute").val("");
-    $("name").val("");
-    $("description").val("");
+function limpiar7() {
+    $("#id_portfolio").val("");
+    $("#class").val("");
+    $("#link").val("");
+    $("#imgroute").val("");
+    $("#name").val("");
+    $("#description").val("");
 }
 
 //Función mostrar formulario
-function mostrarform(flag) {
-    limpiar();
+function mostrarform7(flag) {
+    limpiar7();
     if (flag) {
-        $("#listadoregistros").hide();
-        $("#formularioregistros").show();
-        $("#btnGuardar").prop("disabled", false);
-        $("#btnagregar").hide();
+        $("#listadoregistros7").hide();
+        $("#formularioregistros7").show();
+        $("#btnGuardar7").prop("disabled", false);
+        $("#btnagregar7").hide();
     } else {
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
-        $("#btnagregar").show();
+        $("#listadoregistros7").show();
+        $("#formularioregistros7").hide();
+        $("#btnagregar7").show();
     }
 }
 
 //Función cancelarform
-function cancelarform() {
-    limpiar();
-    mostrarform(false);
+function cancelarform7() {
+    limpiar7();
+    mostrarform7(false);
 }
 
 //Función Listar
-function listar() {
-    tabla = $('#tbllistado').dataTable({
+function listar7() {
+    tabla7 = $('#tbllistado7').dataTable({
         "aProcessing": true, //Activamos el procesamiento del datatables
         "aServerSide": true, //Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip', //Definimos los elementos del control de tabla
@@ -49,7 +53,7 @@ function listar() {
             'pdf'
         ],
         "ajax": {
-            url: '../ajax/portfolio.php?op=listar',
+            url: '../ajax/portfolio.php?op=listar7',
             type: "get",
             dataType: "json",
             error: function(e) {
@@ -65,13 +69,13 @@ function listar() {
 }
 //Función para guardar o editar
 
-function guardaryeditar(e) {
+function guardaryeditar7(e) {
     e.preventDefault(); //No se activará la acción predeterminada del evento
-    $("#btnGuardar").prop("disabled", true);
-    var formData = new FormData($("#formulario")[0]);
+    $("#btnGuardar7").prop("disabled", true);
+    var formData = new FormData($("#formulario7")[0]);
 
     $.ajax({
-        url: "../ajax/portfolio.php?op=guardaryeditar",
+        url: "../ajax/portfolio.php?op=guardaryeditar7",
         type: "POST",
         data: formData,
         contentType: false,
@@ -79,25 +83,25 @@ function guardaryeditar(e) {
 
         success: function(datos) {
             bootbox.alert(datos);
-            mostrarform(false);
-            tabla.ajax.reload();
+            mostrarform7(false);
+            tabla7.ajax.reload();
         }
 
     });
-    limpiar();
+    limpiar7();
 }
 
-function mostrar(id_portfolio) {
-    $.post("../ajax/portfolio.php?op=mostrar", { id_portfolio: id_portfolio }, function(data, status) {
+function mostrar7(id_portfolio) {
+    $.post("../ajax/portfolio.php?op=mostrar7", { id_portfolio: id_portfolio }, function(data, status) {
         data = JSON.parse(data);
-        mostrarform(true);
+        mostrarform7(true);
 
-        $("id_portfolio").val(data.id_portfolio);
-        $("class").val(data.class);
-        $("link").val(data.link);
-        $("imgroute").val(data.imgroute);
-        $("name").val(data.name);
-        $("description").val(data.description);
+        $("#id_portfolio").val(data.id_portfolio);
+        $("#class").val(data.class);
+        $("#link").val(data.link);
+        $("#imgroute").val(data.imgroute);
+        $("#name").val(data.name);
+        $("#description").val(data.description);
     })
 }
 

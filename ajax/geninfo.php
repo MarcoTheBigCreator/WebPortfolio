@@ -12,34 +12,34 @@ $age=isset($_POST["age"])? limpiarCadena($_POST["age"]):"";
 $gender=isset($_POST["gender"])? limpiarCadena($_POST["gender"]):"";
 
 switch ($_GET["op"]){
-	case 'guardaryeditar':
+	case 'guardaryeditar6':
 
 		if (empty($id_geninfo)){
-			$rspta = $geninfo -> insertar($description, $location, $clocation, $age, $gender);
+			$rspta = $geninfo -> insertar6($description, $location, $clocation, $age, $gender);
             echo $rspta ? "geninfo registered" : "geninfo not registered";
 		}
 		else {
-            $rspta = $geninfo -> editar($id_geninfo, $description, $location, $clocation, $age, $gender);
+            $rspta = $geninfo -> editar6($id_geninfo, $description, $location, $clocation, $age, $gender);
             echo $rspta ? "geninfo updated" : "geninfo not updated";
 		}
 
     break;
 
-    case 'mostrar':
-		$rspta = $geninfo->mostrar($id_geninfo);
+    case 'mostrar6':
+		$rspta = $geninfo->mostrar6($id_geninfo);
  		//Codificar el resultado utilizando json
         echo json_encode($rspta);
         break;
 	break;
 
-	case 'listar':
-		$rspta=$geninfo->listar();
+	case 'listar6':
+		$rspta=$geninfo->listar6();
  		//Vamos a declarar un array
         $data= Array();
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->id_geninfo.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar6('.$reg->id_geninfo.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->description,
                 "2"=>$reg->location,
                 "3"=>$reg->clocation,

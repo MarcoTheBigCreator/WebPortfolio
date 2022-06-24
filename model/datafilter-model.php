@@ -9,7 +9,7 @@ Class datafilter
     }
 
 	//Método para insertar registros
-    public function insertar($class, $filter)
+    public function insertar2($class, $filter)
     {
         $sql = "INSERT INTO datafilter (class, filter)
         VALUES ('$class', '$filter')";
@@ -17,7 +17,7 @@ Class datafilter
     }
 
 	//Método para editar registros
-    public function editar($id_datafilter, $class, $filter)
+    public function editar2($id_datafilter, $class, $filter)
     {
         $sql = "UPDATE datafilter SET class = '$class', filter= '$filter'
         WHERE id_datafilter = '$id_datafilter' ";
@@ -25,14 +25,14 @@ Class datafilter
     }
 	
 	//Método para mostrar registros
-    public function mostrar($id_datafilter)
+    public function mostrar2($id_datafilter)
     {
         $sql = "SELECT*FROM datafilter WHERE id_datafilter = '$id_datafilter'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
 	//Método para listar registros
-    public function listar()
+    public function listar2()
     {
         $sql = "SELECT*FROM datafilter";
         return ejecutarCOnsulta($sql);

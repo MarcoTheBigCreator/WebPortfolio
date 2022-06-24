@@ -9,7 +9,7 @@ Class designskills
     }
 
 	//Método para insertar registros
-    public function insertar($skill, $percentage)
+    public function insertar3($skill, $percentage)
     {
         $sql = "INSERT INTO designskills (skill, percentage)
         VALUES ('$skill', '$percentage')";
@@ -17,7 +17,7 @@ Class designskills
     }
 
 	//Método para editar registros
-    public function editar($id_designskill, $skill, $percentage)
+    public function editar3($id_designskill, $skill, $percentage)
     {
         $sql = "UPDATE designskills SET skill = '$skill', percentage= '$percentage'
         WHERE id_designskill = '$id_designskill' ";
@@ -25,14 +25,14 @@ Class designskills
     }
 	
 	//Método para mostrar registros
-    public function mostrar($id_designskill)
+    public function mostrar3($id_designskill)
     {
         $sql = "SELECT*FROM designskills WHERE id_designskill = '$id_designskill'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
 	//Método para listar registros
-    public function listar()
+    public function listar3()
     {
         $sql = "SELECT*FROM designskills";
         return ejecutarCOnsulta($sql);

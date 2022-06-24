@@ -11,34 +11,34 @@ $namejob=isset($_POST["namejob"])? limpiarCadena($_POST["namejob"]):"";
 $description=isset($_POST["description"])? limpiarCadena($_POST["description"]):"";
 
 switch ($_GET["op"]){
-	case 'guardaryeditar':
+	case 'guardaryeditar5':
 
 		if (empty($id_experience)){
-			$rspta = $experience -> insertar($date, $title, $namejob, $description);
+			$rspta = $experience -> insertar5($date, $title, $namejob, $description);
             echo $rspta ? "experience registered" : "experience not registered";
 		}
 		else {
-            $rspta = $experience -> editar($id_experience, $date, $title, $namejob, $description);
+            $rspta = $experience -> editar5($id_experience, $date, $title, $namejob, $description);
             echo $rspta ? "experience updated" : "experience not updated";
 		}
 
     break;
 
-    case 'mostrar':
-		$rspta = $experience->mostrar($id_experience);
+    case 'mostrar5':
+		$rspta = $experience->mostrar5($id_experience);
  		//Codificar el resultado utilizando json
         echo json_encode($rspta);
         break;
 	break;
 
-	case 'listar':
-		$rspta=$experience->listar();
+	case 'listar5':
+		$rspta=$experience->listar5();
  		//Vamos a declarar un array
         $data= Array();
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>$reg->id_experience,
+                "0"=>'<button class="btn btn-warning" onclick="mostrar5('.$reg->id_experience.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->date,
                 "2"=>$reg->title,
                 "3"=>$reg->namejob,

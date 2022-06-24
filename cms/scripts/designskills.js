@@ -1,41 +1,45 @@
-var tabla;
+var tabla3;
 
 function init() {
-    mostrarform(false);
-    listar();
+    mostrarform3(false);
+    listar3();
+
+    $("#formulario3").on("submit", function(e) {
+        guardaryeditar3(e);
+    })
 }
 
 //Función limpiar
-function limpiar() {
-    $("id_designskill").val("");
-    $("skill").val("");
-    $("percentage").val("");
+function limpiar3() {
+    $("#id_designskill").val("");
+    $("#skill").val("");
+    $("#percentage").val("");
 }
 
 //Función mostrar formulario
-function mostrarform(flag) {
-    limpiar();
+function mostrarform3(flag) {
+    limpiar3();
     if (flag) {
-        $("#listadoregistros").hide();
-        $("#formularioregistros").show();
-        $("#btnGuardar").prop("disabled", false);
-        $("#btnagregar").hide();
+        $("#listadoregistros3").hide();
+        $("#formularioregistros3").show();
+        $("#btnGuardar3").prop("disabled", false);
+        $("#btnagregar3").hide();
     } else {
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
-        $("#btnagregar").show();
+        $("#listadoregistros3").show();
+        $("#formularioregistros3").hide();
+        $("#btnagregar3").show();
     }
 }
 
 //Función cancelarform
-function cancelarform() {
-    limpiar();
-    mostrarform(false);
+function cancelarform3() {
+    limpiar3();
+    mostrarform3(false);
 }
 
 //Función Listar
-function listar() {
-    tabla = $('#tbllistado').dataTable({
+function listar3() {
+    tabla3 = $('#tbllistado3').dataTable({
         "aProcessing": true, //Activamos el procesamiento del datatables
         "aServerSide": true, //Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip', //Definimos los elementos del control de tabla
@@ -46,7 +50,7 @@ function listar() {
             'pdf'
         ],
         "ajax": {
-            url: '../ajax/designskills.php?op=listar',
+            url: '../ajax/designskills.php?op=listar3',
             type: "get",
             dataType: "json",
             error: function(e) {
@@ -62,13 +66,13 @@ function listar() {
 }
 //Función para guardar o editar
 
-function guardaryeditar(e) {
+function guardaryeditar3(e) {
     e.preventDefault(); //No se activará la acción predeterminada del evento
-    $("#btnGuardar").prop("disabled", true);
-    var formData = new FormData($("#formulario")[0]);
+    $("#btnGuardar3").prop("disabled", true);
+    var formData = new FormData($("#formulario3")[0]);
 
     $.ajax({
-        url: "../ajax/designskills.php?op=guardaryeditar",
+        url: "../ajax/designskills.php?op=guardaryeditar3",
         type: "POST",
         data: formData,
         contentType: false,
@@ -76,22 +80,22 @@ function guardaryeditar(e) {
 
         success: function(datos) {
             bootbox.alert(datos);
-            mostrarform(false);
-            tabla.ajax.reload();
+            mostrarform3(false);
+            tabla3.ajax.reload();
         }
 
     });
-    limpiar();
+    limpiar3();
 }
 
-function mostrar(id_designskill) {
-    $.post("../ajax/designskills.php?op=mostrar", { id_designskill: id_designskill }, function(data, status) {
+function mostrar3(id_designskill) {
+    $.post("../ajax/designskills.php?op=mostrar3", { id_designskill: id_designskill }, function(data, status) {
         data = JSON.parse(data);
-        mostrarform(true);
+        mostrarform3(true);
 
-        $("id_designskill").val(data.id_designskill);
-        $("skill").val(data.skill);
-        $("percentage").val(data.percentage);
+        $("#id_designskill").val(data.id_designskill);
+        $("#skill").val(data.skill);
+        $("#percentage").val(data.percentage);
     })
 }
 
