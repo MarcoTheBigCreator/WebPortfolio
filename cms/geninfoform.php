@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-include 'header.php';
+include 'head.php';
 ?>
 
 <body>
@@ -115,7 +115,7 @@ include 'nav.php';
 
 
   </section>
-  <script type="text/javascript" src="scripts/geninfo.js"></script>
+  <script type="text/javascript" src="script/geninfo.js"></script>
 </body>
 
 </html>

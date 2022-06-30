@@ -31,7 +31,7 @@ $portfolio = mysqli_query($conexion,$portfolioQuery);
 
 
 
-include 'header.php';
+include 'head.php';
 ?>
 
 <body class="theme-red">

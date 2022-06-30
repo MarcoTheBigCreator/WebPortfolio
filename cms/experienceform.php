@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-include 'header.php';
+include 'head.php';
 ?>
 
 <body>
@@ -110,7 +110,7 @@ include 'nav.php';
 
 
   </section>
-  <script type="text/javascript" src="scripts/experience.js"></script>
+  <script type="text/javascript" src="script/experience.js"></script>
 </body>
 
 </html>
