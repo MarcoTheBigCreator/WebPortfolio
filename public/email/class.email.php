@@ -6,8 +6,8 @@ include "class.smtp.php";
 class Email{
     public function __construct()
     {
-        $this->email = "marco.rodriguez.is@unipolidgo.edu.mx";
-        $this->password = "55511-11327Mda";
+        $this->email = "email";
+        $this->password = "password";
     }
 
     public function sendEmail($recipient, $title, $subject, $message)
