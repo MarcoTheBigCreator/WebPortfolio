@@ -14,6 +14,7 @@ function limpiar2() {
     $("#id_datafilter").val("");
     $("#class").val("");
     $("#filter").val("");
+    $("#language").val("");
 }
 
 //Función mostrar formulario
@@ -96,6 +97,7 @@ function mostrar2(id_datafilter) {
         $("#id_datafilter").val(data.id_datafilter);
         $("#class").val(data.class);
         $("#filter").val(data.filter);
+        $("#language").val(data.language);
     })
 }
 

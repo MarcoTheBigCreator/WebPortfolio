@@ -9,17 +9,17 @@ Class services
     }
 
 	//Método para insertar registros
-    public function insertar8($icon, $service, $description)
+    public function insertar8($icon, $service, $description, $language)
     {
-        $sql = "INSERT INTO services (icon, service, description)
-        VALUES ('$icon', '$service', '$description')";
+        $sql = "INSERT INTO services (icon, service, description, language)
+        VALUES ('$icon', '$service', '$description', '$language')";
         return ejecutarConsulta($sql);
     }
 
 	//Método para editar registros
-    public function editar8($id_service, $icon, $service, $description)
+    public function editar8($id_service, $icon, $service, $description, $language)
     {
-        $sql = "UPDATE services SET icon = '$icon', service = '$service', description ='$description'
+        $sql = "UPDATE services SET icon = '$icon', service = '$service', description ='$description', language= '$language'
         WHERE id_service = '$id_service' ";
         return ejecutarConsulta($sql);
     }

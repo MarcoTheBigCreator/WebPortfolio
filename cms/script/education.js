@@ -16,6 +16,7 @@ function limpiar4() {
     $("#title").val("");
     $("#nameschool").val("");
     $("#description").val("");
+    $("#language").val("");
 }
 
 //Función mostrar formulario
@@ -100,6 +101,7 @@ function mostrar4(id_education) {
         $("#title").val(data.title);
         $("#nameschool").val(data.nameschool);
         $("#description").val(data.description);
+        $("#language").val(data.language);
     })
 }
 

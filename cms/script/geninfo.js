@@ -17,6 +17,7 @@ function limpiar6() {
     $("#clocation").val("");
     $("#age").val("");
     $("#gender").val("");
+    $("#language").val("");
 }
 
 //Función mostrar formulario
@@ -102,6 +103,7 @@ function mostrar6(id_geninfo) {
         $("#clocation").val(data.clocation);
         $("#age").val(data.age);
         $("#gender").val(data.gender);
+        $("#language").val(data.language);
     })
 }
 

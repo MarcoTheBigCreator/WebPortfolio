@@ -10,16 +10,17 @@ $link=isset($_POST["link"])? limpiarCadena($_POST["link"]):"";
 $imgroute=isset($_POST["imgroute"])? limpiarCadena($_POST["imgroute"]):"";
 $name=isset($_POST["name"])? limpiarCadena($_POST["name"]):"";
 $description=isset($_POST["description"])? limpiarCadena($_POST["description"]):"";
+$language=isset($_POST["language"])? limpiarCadena($_POST["language"]):"";
 
 switch ($_GET["op"]){
 	case 'guardaryeditar7':
 
 		if (empty($id_portfolio)){
-			$rspta = $portfolio -> insertar7($class, $link, $imgroute, $name, $description);
+			$rspta = $portfolio -> insertar7($class, $link, $imgroute, $name, $description, $language);
             echo $rspta ? "portfolio registered" : "portfolio not registered";
 		}
 		else {
-            $rspta = $portfolio -> editar7($id_portfolio, $class, $link, $imgroute, $name, $description);
+            $rspta = $portfolio -> editar7($id_portfolio, $class, $link, $imgroute, $name, $description, $language);
             echo $rspta ? "portfolio updated" : "portfolio not updated";
 		}
 
@@ -44,7 +45,8 @@ switch ($_GET["op"]){
                 "2"=>$reg->link,
                 "3"=>$reg->imgroute,
                 "4"=>$reg->name,
-                "5"=>$reg->description
+                "5"=>$reg->description,
+                "6"=>$reg->language
                 );
         }
         $results = array(

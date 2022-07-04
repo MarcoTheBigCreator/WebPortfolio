@@ -9,17 +9,17 @@ Class experience
     }
 
 	//Método para insertar registros
-    public function insertar5($date, $title, $namejob, $description)
+    public function insertar5($date, $title, $namejob, $description, $language)
     {
-        $sql = "INSERT INTO experience (date, title, namejob, description)
-        VALUES ('$date', '$title', '$namejob', '$description')";
+        $sql = "INSERT INTO experience (date, title, namejob, description, language)
+        VALUES ('$date', '$title', '$namejob', '$description', '$language')";
         return ejecutarConsulta($sql);
     }
 
 	//Método para editar registros
-    public function editar5($id_experience, $date, $title, $namejob, $description)
+    public function editar5($id_experience, $date, $title, $namejob, $description, $language)
     {
-        $sql = "UPDATE experience SET date = '$date', title = '$title', namejob = '$namejob', description ='$description'
+        $sql = "UPDATE experience SET date = '$date', title = '$title', namejob = '$namejob', description ='$description', language= '$language'
         WHERE id_experience = '$id_experience' ";
         return ejecutarConsulta($sql);
     }

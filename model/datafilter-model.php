@@ -9,17 +9,17 @@ Class datafilter
     }
 
 	//Método para insertar registros
-    public function insertar2($class, $filter)
+    public function insertar2($class, $filter, $language)
     {
-        $sql = "INSERT INTO datafilter (class, filter)
-        VALUES ('$class', '$filter')";
+        $sql = "INSERT INTO datafilter (class, filter, language)
+        VALUES ('$class', '$filter', '$language')";
         return ejecutarConsulta($sql);
     }
 
 	//Método para editar registros
-    public function editar2($id_datafilter, $class, $filter)
+    public function editar2($id_datafilter, $class, $filter, $language)
     {
-        $sql = "UPDATE datafilter SET class = '$class', filter= '$filter'
+        $sql = "UPDATE datafilter SET class = '$class', filter= '$filter', language= '$language'
         WHERE id_datafilter = '$id_datafilter' ";
         return ejecutarConsulta($sql);
     }

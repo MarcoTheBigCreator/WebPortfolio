@@ -16,6 +16,7 @@ function limpiar5() {
     $("#title").val("");
     $("#namejob").val("");
     $("#description").val("");
+    $("#language").val("");
 }
 
 //Función mostrar formulario
@@ -100,6 +101,7 @@ function mostrar5(id_experience) {
         $("#title").val(data.title);
         $("#namejob").val(data.namejob);
         $("#description").val(data.description);
+        $("#language").val(data.language);
     })
 }
 

@@ -57,6 +57,7 @@ include 'nav.php';
                     <th>Current Location</th>
                     <th>Age</th>
                     <th>Gender</th>
+                    <th>Language</th>
                   </thead>
                   <tbody>
                   </tbody>
@@ -88,6 +89,10 @@ include 'nav.php';
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Gender:</label>
                     <input type="input" class="form-control" name="gender" id="gender">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Language:</label>
+                    <input type="input" class="form-control" name="language" id="language">
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <button class="btn btn-primary" type="submit" id="btnGuardar6"><i class="fa fa-save"></i> Guardar</button>

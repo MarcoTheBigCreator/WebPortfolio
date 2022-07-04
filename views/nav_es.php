@@ -11,16 +11,16 @@
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a href="#home" class="nav-link" data-animate="scrolling">Home</a>
+                            <a href="#home" class="nav-link" data-animate="scrolling">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#about" class="nav-link" data-animate="scrolling">About me</a>
+                            <a href="#about" class="nav-link" data-animate="scrolling">Acerca de mí</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#portfolio" class="nav-link" data-animate="scrolling">Portfolio</a>
+                            <a href="#portfolio" class="nav-link" data-animate="scrolling">Portafolio</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#contact" class="nav-link" data-animate="scrolling">Contact me</a>
+                            <a href="#contact" class="nav-link" data-animate="scrolling">Contáctame</a>
                         </li>
                     </ul>
                     <ul class="nav ml-auto">

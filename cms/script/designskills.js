@@ -14,6 +14,7 @@ function limpiar3() {
     $("#id_designskill").val("");
     $("#skill").val("");
     $("#percentage").val("");
+    $("#language").val("");
 }
 
 //Función mostrar formulario
@@ -96,6 +97,7 @@ function mostrar3(id_designskill) {
         $("#id_designskill").val(data.id_designskill);
         $("#skill").val(data.skill);
         $("#percentage").val(data.percentage);
+        $("#language").val(data.language);
     })
 }
 

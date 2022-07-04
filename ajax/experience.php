@@ -9,16 +9,17 @@ $date=isset($_POST["date"])? limpiarCadena($_POST["date"]):"";
 $title=isset($_POST["title"])? limpiarCadena($_POST["title"]):"";
 $namejob=isset($_POST["namejob"])? limpiarCadena($_POST["namejob"]):"";
 $description=isset($_POST["description"])? limpiarCadena($_POST["description"]):"";
+$language=isset($_POST["language"])? limpiarCadena($_POST["language"]):"";
 
 switch ($_GET["op"]){
 	case 'guardaryeditar5':
 
 		if (empty($id_experience)){
-			$rspta = $experience -> insertar5($date, $title, $namejob, $description);
+			$rspta = $experience -> insertar5($date, $title, $namejob, $description, $language);
             echo $rspta ? "experience registered" : "experience not registered";
 		}
 		else {
-            $rspta = $experience -> editar5($id_experience, $date, $title, $namejob, $description);
+            $rspta = $experience -> editar5($id_experience, $date, $title, $namejob, $description, $language);
             echo $rspta ? "experience updated" : "experience not updated";
 		}
 
@@ -42,7 +43,8 @@ switch ($_GET["op"]){
                 "1"=>$reg->date,
                 "2"=>$reg->title,
                 "3"=>$reg->namejob,
-                "4"=>$reg->description
+                "4"=>$reg->description,
+                "5"=>$reg->language
                 );
         }
         $results = array(

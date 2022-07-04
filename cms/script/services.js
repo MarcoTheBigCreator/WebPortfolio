@@ -15,6 +15,7 @@ function limpiar8() {
     $("#icon").val("");
     $("#service").val("");
     $("#description").val("");
+    $("#language").val("");
 }
 
 //Función mostrar formulario
@@ -98,6 +99,7 @@ function mostrar8(id_service) {
         $("#icon").val(data.icon);
         $("#service").val(data.service);
         $("#description").val(data.description);
+        $("#language").val(data.language);
     })
 }
 

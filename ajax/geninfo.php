@@ -10,16 +10,17 @@ $location=isset($_POST["location"])? limpiarCadena($_POST["location"]):"";
 $clocation=isset($_POST["clocation"])? limpiarCadena($_POST["clocation"]):"";
 $age=isset($_POST["age"])? limpiarCadena($_POST["age"]):"";
 $gender=isset($_POST["gender"])? limpiarCadena($_POST["gender"]):"";
+$language=isset($_POST["language"])? limpiarCadena($_POST["language"]):"";
 
 switch ($_GET["op"]){
 	case 'guardaryeditar6':
 
 		if (empty($id_geninfo)){
-			$rspta = $geninfo -> insertar6($description, $location, $clocation, $age, $gender);
+			$rspta = $geninfo -> insertar6($description, $location, $clocation, $age, $gender, $language);
             echo $rspta ? "geninfo registered" : "geninfo not registered";
 		}
 		else {
-            $rspta = $geninfo -> editar6($id_geninfo, $description, $location, $clocation, $age, $gender);
+            $rspta = $geninfo -> editar6($id_geninfo, $description, $location, $clocation, $age, $gender, $language);
             echo $rspta ? "geninfo updated" : "geninfo not updated";
 		}
 
@@ -44,7 +45,8 @@ switch ($_GET["op"]){
                 "2"=>$reg->location,
                 "3"=>$reg->clocation,
                 "4"=>$reg->age,
-                "5"=>$reg->gender
+                "5"=>$reg->gender,
+                "6"=>$reg->language
                 );
         }
         $results = array(

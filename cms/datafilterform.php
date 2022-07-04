@@ -54,6 +54,7 @@ include 'nav.php';
                     <th>Options</th>
                     <th>Class</th>
                     <th>Filter</th>
+                    <th>Language</th>
                   </thead>
                   <tbody>
                   </tbody>
@@ -72,6 +73,10 @@ include 'nav.php';
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Filter:</label>
                     <input type="input" class="form-control" name="filter" id="filter">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Language:</label>
+                    <input type="input" class="form-control" name="language" id="language">
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <button class="btn btn-primary" type="submit" id="btnGuardar2"><i class="fa fa-save"></i> Guardar</button>

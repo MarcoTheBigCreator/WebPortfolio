@@ -11,17 +11,17 @@ Class geninfo
     }
 
 	//Método para insertar registros
-    public function insertar6($description, $location, $clocation, $age, $gender)
+    public function insertar6($description, $location, $clocation, $age, $gender, $language)
     {
-        $sql = "INSERT INTO geninfo (description, location, clocation, age, gender)
-        VALUES ('$description', '$location', '$clocation', '$age', '$gender')";
+        $sql = "INSERT INTO geninfo (description, location, clocation, age, gender, language)
+        VALUES ('$description', '$location', '$clocation', '$age', '$gender', '$language')";
         return ejecutarConsulta($sql);
     }
 
 	//Método para editar registros
-    public function editar6($id_geninfo, $description, $location, $clocation, $age, $gender)
+    public function editar6($id_geninfo, $description, $location, $clocation, $age, $gender,$language)
     {
-        $sql = "UPDATE geninfo SET description= '$description', location= '$location', clocation= '$clocation', age = '$age', gender = '$gender' WHERE id_geninfo = '$id_geninfo' ";
+        $sql = "UPDATE geninfo SET description= '$description', location= '$location', clocation= '$clocation', age = '$age', gender = '$gender', language = '$language' WHERE id_geninfo = '$id_geninfo' ";
         return ejecutarConsulta($sql);
     }
 	

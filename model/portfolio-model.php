@@ -9,17 +9,17 @@ Class portfolio
     }
 
 	//Método para insertar registros
-    public function insertar7($class, $link, $imgroute, $name, $description)
+    public function insertar7($class, $link, $imgroute, $name, $description, $language)
     {
-        $sql = "INSERT INTO portfolio (class, link, imgroute, name, description)
-        VALUES ('$class', '$link', '$imgroute', '$name', '$description')";
+        $sql = "INSERT INTO portfolio (class, link, imgroute, name, description, language)
+        VALUES ('$class', '$link', '$imgroute', '$name', '$description', '$language')";
         return ejecutarConsulta($sql);
     }
 
 	//Método para editar registros
-    public function editar7($id_portfolio, $class, $link, $imgroute, $name, $description)
+    public function editar7($id_portfolio, $class, $link, $imgroute, $name, $description, $language)
     {
-        $sql = "UPDATE portfolio SET class = '$class', link= '$link', imgroute= '$imgroute', name = '$name', description = '$description'
+        $sql = "UPDATE portfolio SET class = '$class', link= '$link', imgroute= '$imgroute', name = '$name', description = '$description', language= '$language'
         WHERE id_portfolio = '$id_portfolio' ";
         return ejecutarConsulta($sql);
     }

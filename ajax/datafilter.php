@@ -7,16 +7,17 @@ $datafilter = new datafilter();
 $id_datafilter=isset($_POST["id_datafilter"])? limpiarCadena($_POST["id_datafilter"]):"";
 $class=isset($_POST["class"])? limpiarCadena($_POST["class"]):"";
 $filter=isset($_POST["filter"])? limpiarCadena($_POST["filter"]):"";
+$language=isset($_POST["language"])? limpiarCadena($_POST["language"]):"";
 
 switch ($_GET["op"]){
 	case 'guardaryeditar2':
 
 		if (empty($id_datafilter)){
-			$rspta = $datafilter -> insertar2($class, $filter);
+			$rspta = $datafilter -> insertar2($class, $filter, $language);
             echo $rspta ? "data filter registered" : "data filter not registered";
 		}
 		else {
-            $rspta = $datafilter -> editar2($id_datafilter, $class, $filter);
+            $rspta = $datafilter -> editar2($id_datafilter, $class, $filter ,$language);
             echo $rspta ? "data filter updated" : "data filter not updated";
 		}
 
@@ -38,7 +39,8 @@ switch ($_GET["op"]){
             $data[]=array(
                 "0"=>'<button class="btn btn-warning" onclick="mostrar2('.$reg->id_datafilter.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->class,
-                "2"=>$reg->filter
+                "2"=>$reg->filter,
+                "3"=>$reg->language
                 );
         }
         $results = array(

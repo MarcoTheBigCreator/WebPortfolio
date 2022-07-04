@@ -10,7 +10,7 @@
                         <!-- Grid column -->
                         <div class="col-md-2">
                             <h6>
-                                <a class="nav-link text-white" href="#home" data-animate="scrolling">Home</a>
+                                <a class="nav-link text-white" href="#home" data-animate="scrolling">Inicio</a>
                             </h6>
                         </div>
                         <!-- Grid column -->
@@ -18,7 +18,7 @@
                         <!-- Grid column -->
                         <div class="col-md-2">
                             <h6>
-                                <a class="nav-link text-white" href="#about" data-animate="scrolling">About me</a>
+                                <a class="nav-link text-white" href="#about" data-animate="scrolling">Acerca de mí</a>
                             </h6>
                         </div>
                         <!-- Grid column -->
@@ -26,7 +26,7 @@
                         <!-- Grid column -->
                         <div class="col-md-2">
                             <h6>
-                                <a class="nav-link text-white" href="#portfolio" data-animate="scrolling">Portfolio</a>
+                                <a class="nav-link text-white" href="#portfolio" data-animate="scrolling">Portafolio</a>
                             </h6>
                         </div>
                         <!-- Grid column -->
@@ -34,7 +34,7 @@
                         <!-- Grid column -->
                         <div class="col-md-2">
                             <h6>
-                                <a class="nav-link text-white" href="#contact" data-animate="scrolling">Contact me</a>
+                                <a class="nav-link text-white" href="#contact" data-animate="scrolling">Contáctame</a>
                             </h6>
                         </div>
                         <!-- Grid column -->
@@ -50,7 +50,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-8">
                             <p>
-                                I appreciate your time to know about me and my work a little bit better. I let my social networks down here if you want to follow me and keep in contact.
+                                Agradezco su tiempo para conocer un poco mejor sobre mí y mi trabajo. Dejo mis redes sociales aquí abajo por si quieres seguirme y estar en contacto.
                             </p>
                         </div>
                     </div>

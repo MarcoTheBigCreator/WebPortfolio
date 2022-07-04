@@ -54,6 +54,7 @@ include 'nav.php';
                     <th>Options</th>
                     <th>Skill</th>
                     <th>Percentage</th>
+                    <th>Language</th>
                   </thead>
                   <tbody>
                   </tbody>
@@ -72,6 +73,10 @@ include 'nav.php';
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Percentage:</label>
                     <input type="input" class="form-control" name="percentage" id="percentage">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Language:</label>
+                    <input type="input" class="form-control" name="language" id="language">
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <button class="btn btn-primary" type="submit" id="btnGuardar3"><i class="fa fa-save"></i> Guardar</button>

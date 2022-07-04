@@ -9,17 +9,17 @@ Class designskills
     }
 
 	//Método para insertar registros
-    public function insertar3($skill, $percentage)
+    public function insertar3($skill, $percentage, $language)
     {
-        $sql = "INSERT INTO designskills (skill, percentage)
-        VALUES ('$skill', '$percentage')";
+        $sql = "INSERT INTO designskills (skill, percentage, language)
+        VALUES ('$skill', '$percentage', '$language')";
         return ejecutarConsulta($sql);
     }
 
 	//Método para editar registros
-    public function editar3($id_designskill, $skill, $percentage)
+    public function editar3($id_designskill, $skill, $percentage, $language)
     {
-        $sql = "UPDATE designskills SET skill = '$skill', percentage= '$percentage'
+        $sql = "UPDATE designskills SET skill = '$skill', percentage= '$percentage', language= '$language'
         WHERE id_designskill = '$id_designskill' ";
         return ejecutarConsulta($sql);
     }

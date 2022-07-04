@@ -7,16 +7,17 @@ $designskills = new designskills();
 $id_designskill=isset($_POST["id_designskill"])? limpiarCadena($_POST["id_designskill"]):"";
 $skill=isset($_POST["skill"])? limpiarCadena($_POST["skill"]):"";
 $percentage=isset($_POST["percentage"])? limpiarCadena($_POST["percentage"]):"";
+$language=isset($_POST["language"])? limpiarCadena($_POST["language"]):"";
 
 switch ($_GET["op"]){
 	case 'guardaryeditar3':
 
 		if (empty($id_designskill)){
-			$rspta = $designskills -> insertar3($skill, $percentage);
+			$rspta = $designskills -> insertar3($skill, $percentage, $language);
             echo $rspta ? "design skill registered" : "design skill not registered";
 		}
 		else {
-            $rspta = $designskills -> editar3($id_designskill, $skill, $percentage);
+            $rspta = $designskills -> editar3($id_designskill, $skill, $percentage, $language);
             echo $rspta ? "design skill updated" : "design skill not updated";
 		}
 
@@ -38,7 +39,8 @@ switch ($_GET["op"]){
             $data[]=array(
                 "0"=>'<button class="btn btn-warning" onclick="mostrar3('.$reg->id_designskill.')"><i class="fas fa-pencil-alt"></i></button>',
                 "1"=>$reg->skill,
-                "2"=>$reg->percentage
+                "2"=>$reg->percentage,
+                "3"=>$reg->language
                 );
         }
         $results = array(

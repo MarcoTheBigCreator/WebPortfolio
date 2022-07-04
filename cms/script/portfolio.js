@@ -17,6 +17,7 @@ function limpiar7() {
     $("#imgroute").val("");
     $("#name").val("");
     $("#description").val("");
+    $("#language").val("");
 }
 
 //Función mostrar formulario
@@ -102,6 +103,7 @@ function mostrar7(id_portfolio) {
         $("#imgroute").val(data.imgroute);
         $("#name").val(data.name);
         $("#description").val(data.description);
+        $("#language").val(data.language);
     })
 }
 

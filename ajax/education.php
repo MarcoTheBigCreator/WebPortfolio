@@ -9,16 +9,17 @@ $date=isset($_POST["date"])? limpiarCadena($_POST["date"]):"";
 $title=isset($_POST["title"])? limpiarCadena($_POST["title"]):"";
 $nameschool=isset($_POST["nameschool"])? limpiarCadena($_POST["nameschool"]):"";
 $description=isset($_POST["description"])? limpiarCadena($_POST["description"]):"";
+$language=isset($_POST["language"])? limpiarCadena($_POST["language"]):"";
 
 switch ($_GET["op"]){
 	case 'guardaryeditar4':
 
 		if (empty($id_education)){
-			$rspta = $education -> insertar4($date, $title, $nameschool, $description);
+			$rspta = $education -> insertar4($date, $title, $nameschool, $description, $language);
             echo $rspta ? "education registered" : "education not registered";
 		}
 		else {
-            $rspta = $education -> editar4($id_education, $date, $title, $nameschool, $description);
+            $rspta = $education -> editar4($id_education, $date, $title, $nameschool, $description, $language);
             echo $rspta ? "education updated" : "education not updated";
 		}
 
@@ -42,7 +43,8 @@ switch ($_GET["op"]){
                 "1"=>$reg->date,
                 "2"=>$reg->title,
                 "3"=>$reg->nameschool,
-                "4"=>$reg->description
+                "4"=>$reg->description,
+                "5"=>$reg->language
                 );
         }
         $results = array(
