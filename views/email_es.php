@@ -6,6 +6,6 @@
     " Mensaje: ".$_POST["message"].
     " Autor: ".$_POST["name"];
 
-    $ref->SendEmail('rca64658@gmail.com',"Admin",$subject,$message);
+    $ref->SendEmail('email',"Admin",$subject,$message);
     header("Location: es.php");
 ?>
