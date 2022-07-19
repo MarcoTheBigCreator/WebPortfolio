@@ -15,11 +15,11 @@ switch ($_GET["op"]){
 
 		if (empty($id_service)){
 			$rspta = $services -> insertar8($icon, $service, $description, $language);
-            echo $rspta ? "service registered" : "service not registered";
+            echo $rspta ? "Service Registered" : "Service not Registered";
 		}
 		else {
             $rspta = $services -> editar8($id_service, $icon, $service, $description, $language);
-            echo $rspta ? "service updated" : "service not updated";
+            echo $rspta ? "Service Updated" : "Service not Updated";
 		}
 
     break;
@@ -31,6 +31,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar8':
+		$rspta = $services->eliminar8($id_service);
+	break;
+
 	case 'listar8':
 		$rspta=$services->listar8();
  		//Vamos a declarar un array
@@ -38,7 +42,8 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar8('.$reg->id_service.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar8('.$reg->id_service.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger ml-3" onclick="eliminar8('.$reg->id_service.')"><i class="fa fa-trash"></i></button>',
                 "1"=>$reg->icon,
                 "2"=>$reg->service,
                 "3"=>$reg->description,

@@ -17,11 +17,11 @@ switch ($_GET["op"]){
 
 		if (empty($id_geninfo)){
 			$rspta = $geninfo -> insertar6($description, $location, $clocation, $age, $gender, $language);
-            echo $rspta ? "geninfo registered" : "geninfo not registered";
+            echo $rspta ? "GenInfo Registered" : "GenInfo not Registered";
 		}
 		else {
             $rspta = $geninfo -> editar6($id_geninfo, $description, $location, $clocation, $age, $gender, $language);
-            echo $rspta ? "geninfo updated" : "geninfo not updated";
+            echo $rspta ? "GenInfo Updated" : "GenInfo not Updated";
 		}
 
     break;
@@ -33,6 +33,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar6':
+		$rspta = $geninfo->eliminar6($id_geninfo);
+	break;
+
 	case 'listar6':
 		$rspta=$geninfo->listar6();
  		//Vamos a declarar un array
@@ -40,7 +44,8 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar6('.$reg->id_geninfo.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar6('.$reg->id_geninfo.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger ml-3" onclick="eliminar6('.$reg->id_geninfo.')"><i class="fa fa-trash"></i></button>',
                 "1"=>$reg->description,
                 "2"=>$reg->location,
                 "3"=>$reg->clocation,

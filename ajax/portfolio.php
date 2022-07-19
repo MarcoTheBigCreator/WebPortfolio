@@ -17,11 +17,11 @@ switch ($_GET["op"]){
 
 		if (empty($id_portfolio)){
 			$rspta = $portfolio -> insertar7($class, $link, $imgroute, $name, $description, $language);
-            echo $rspta ? "portfolio registered" : "portfolio not registered";
+            echo $rspta ? "Portfolio Registered" : "Portfolio not Registered";
 		}
 		else {
             $rspta = $portfolio -> editar7($id_portfolio, $class, $link, $imgroute, $name, $description, $language);
-            echo $rspta ? "portfolio updated" : "portfolio not updated";
+            echo $rspta ? "Portfolio Updated" : "Portfolio not Updated";
 		}
 
     break;
@@ -33,6 +33,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar7':
+		$rspta = $portfolio->eliminar7($id_portfolio);
+	break;
+
 	case 'listar7':
 		$rspta=$portfolio->listar7();
  		//Vamos a declarar un array
@@ -40,7 +44,8 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar7('.$reg->id_portfolio.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar7('.$reg->id_portfolio.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger ml-3" onclick="eliminar7('.$reg->id_portfolio.')"><i class="fa fa-trash"></i></button>',
                 "1"=>$reg->class,
                 "2"=>$reg->link,
                 "3"=>$reg->imgroute,

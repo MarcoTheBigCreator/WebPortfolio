@@ -37,6 +37,12 @@ Class codingskills
         $sql = "SELECT*FROM codingskills";
         return ejecutarCOnsulta($sql);
     }
+
+    public function eliminar1($id_codingskill)
+    {
+        $sql = "DELETE FROM codingskills WHERE id_codingskill = '$id_codingskill'";
+        return ejecutarConsulta("$sql");
+    }
 }
 
 ?>

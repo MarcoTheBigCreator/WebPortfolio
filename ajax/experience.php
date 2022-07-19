@@ -16,11 +16,11 @@ switch ($_GET["op"]){
 
 		if (empty($id_experience)){
 			$rspta = $experience -> insertar5($date, $title, $namejob, $description, $language);
-            echo $rspta ? "experience registered" : "experience not registered";
+            echo $rspta ? "Experience Registered" : "Experience not Registered";
 		}
 		else {
             $rspta = $experience -> editar5($id_experience, $date, $title, $namejob, $description, $language);
-            echo $rspta ? "experience updated" : "experience not updated";
+            echo $rspta ? "Experience Updated" : "Experience not Updated";
 		}
 
     break;
@@ -32,6 +32,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar5':
+		$rspta = $experience->eliminar5($id_experience);
+	break;
+
 	case 'listar5':
 		$rspta=$experience->listar5();
  		//Vamos a declarar un array
@@ -39,7 +43,8 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar5('.$reg->id_experience.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar5('.$reg->id_experience.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger ml-3" onclick="eliminar5('.$reg->id_experience.')"><i class="fa fa-trash"></i></button>',
                 "1"=>$reg->date,
                 "2"=>$reg->title,
                 "3"=>$reg->namejob,

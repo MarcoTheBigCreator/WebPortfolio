@@ -1,3 +1,7 @@
+<?php
+include '../config/validation.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +45,7 @@ include 'nav.php';
           <div class="col-md-12">
             <div class="box">
               <div class="box-header with-border">
-                <h1 class="box-title">Education<button class="btn btn-success" id="btnagregar9" onclick="mostrarform9(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
+                <h1 class="box-title">Users<button class="btn btn-success ml-4" id="btnagregar9" onclick="mostrarform9(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
                 </h1>
                 <div class="box-tools pull-right">
                 </div>
@@ -64,25 +68,25 @@ include 'nav.php';
                   </tfoot>
                 </table>
               </div>
-              <div class="panel-body" style="height: 400px;" id="formularioregistros9">
+              <div class="panel-body" id="formularioregistros9">
                 <form name="formulario9" id="formulario9" method="POST">
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Name:</label>
-                    <input type="input" class="form-control" name="name" id="name">
+                    <input type="input" class="form-control" name="user_name" id="user_name">
                     <input type="hidden" name="id_user" id="id_user">
                     
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Nickname:</label>
-                    <input type="input" class="form-control" name="nickname" id="nickname">
+                    <input type="input" class="form-control" name="user_nick" id="user_nick">
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Pass:</label>
-                    <input type="input" class="form-control" name="pass" id="pass">
+                    <input type="input" class="form-control" name="password" id="password">
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Type:</label>
-                    <input type="input" class="form-control" name="type" id="type">
+                    <input type="input" class="form-control" name="user_type" id="user_type">
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <button class="btn btn-primary" type="submit" id="btnGuardar9"><i class="fa fa-save"></i> Guardar</button>

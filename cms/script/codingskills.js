@@ -85,17 +85,26 @@ function guardaryeditar1(e) {
 }
 
 function mostrar1(id_codingskill) {
-    $.post(
-        "../ajax/codingskills.php?op=mostrar1", { id_codingskill: id_codingskill },
-        function(data, status) {
-            data = JSON.parse(data);
-            mostrarform1(true);
+    $.post("../ajax/codingskills.php?op=mostrar1", { id_codingskill: id_codingskill }, function(data, status) {
+        data = JSON.parse(data);
+        mostrarform1(true);
 
-            $("#id_codingskill").val(data.id_codingskill);
-            $("#language").val(data.language);
-            $("#percentage").val(data.percentage);
-        }
-    );
+        $("#id_codingskill").val(data.id_codingskill);
+        $("#language").val(data.language);
+        $("#percentage").val(data.percentage);
+    });
+}
+
+function eliminar1(id_codingskill) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/codingskills.php?op=eliminar1", { id_codingskill: id_codingskill }, function(data, status) {
+            listar1(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
 }
 
 init();

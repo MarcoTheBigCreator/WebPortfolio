@@ -37,6 +37,12 @@ Class experience
         $sql = "SELECT*FROM experience";
         return ejecutarCOnsulta($sql);
     }
+    
+    public function eliminar5($id_experience)
+    {
+        $sql = "DELETE FROM experience WHERE id_experience = '$id_experience'";
+        return ejecutarConsulta($sql);
+    }
 }
 
 ?>

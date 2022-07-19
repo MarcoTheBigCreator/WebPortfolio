@@ -16,11 +16,11 @@ switch ($_GET["op"]){
 
 		if (empty($id_education)){
 			$rspta = $education -> insertar4($date, $title, $nameschool, $description, $language);
-            echo $rspta ? "education registered" : "education not registered";
+            echo $rspta ? "Education Registered" : "Education not Registered";
 		}
 		else {
             $rspta = $education -> editar4($id_education, $date, $title, $nameschool, $description, $language);
-            echo $rspta ? "education updated" : "education not updated";
+            echo $rspta ? "Education Updated" : "Education not Updated";
 		}
 
     break;
@@ -32,6 +32,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar4':
+		$rspta = $education->eliminar4($id_education);
+	break;
+
 	case 'listar4':
 		$rspta=$education->listar4();
  		//Vamos a declarar un array
@@ -39,7 +43,8 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar4('.$reg->id_education.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar4('.$reg->id_education.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger ml-3" onclick="eliminar4('.$reg->id_education.')"><i class="fa fa-trash"></i></button>',
                 "1"=>$reg->date,
                 "2"=>$reg->title,
                 "3"=>$reg->nameschool,

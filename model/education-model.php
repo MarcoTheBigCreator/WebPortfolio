@@ -37,6 +37,12 @@ Class education
         $sql = "SELECT*FROM education";
         return ejecutarCOnsulta($sql);
     }
+
+    public function eliminar4($id_education)
+    {
+        $sql = "DELETE FROM education WHERE id_education = '$id_education'";
+        return ejecutarConsulta("$sql");
+    }
 }
 
 ?>

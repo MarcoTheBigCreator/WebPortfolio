@@ -73,22 +73,22 @@ include 'head.php';
                         </p>
                         <?php } ?>
                     <ul class="theme-list">
-                        <li><b>From:</b>
+                        <li><b>De:</b>
                         <?php foreach($genInfo as $row){ ?>
                         <?php echo $row['location'];?>
                         </li>
                         <?php } ?>
-                        <li><b>Lives In:</b>
+                        <li><b>Vivo en:</b>
                         <?php foreach($genInfo as $row){ ?>
                         <?php echo $row['clocation'];?>
                         </li>
                         <?php } ?>
-                        <li><b>Age:</b>
+                        <li><b>Edad:</b>
                         <?php foreach($genInfo as $row){ ?>
                         <?php echo $row['age'];?>
                         </li>
                         <?php } ?>  
-                        <li><b>Gender:</b>
+                        <li><b>Género:</b>
                         <?php foreach($genInfo as $row){ ?>
                         <?php echo $row['gender'];?>
                         </li>

@@ -104,7 +104,19 @@ function mostrar7(id_portfolio) {
         $("#name").val(data.name);
         $("#description").val(data.description);
         $("#language").val(data.language);
-    })
+    });
+}
+
+function eliminar7(id_portfolio) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/portfolio.php?op=eliminar7", { id_portfolio: id_portfolio }, function(data, status) {
+            listar7(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
 }
 
 init();

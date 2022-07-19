@@ -2,10 +2,17 @@
     include "../public/email/class.email.php";
     $ref = new Email();
     $subject = $_POST["subject"];
-    $message = "Sent from: ".$_POST["email"].
-    " Message: ".$_POST["message"].
-    " Author: ".$_POST["name"];
+    $email = $_POST["email"];
+    $messagedes = $_POST["message"];
+    $name = $_POST["name"];
+    
+    $message= "
+    <body>
+    <p>Sent From: <span>$email<span></p>
+    <p>Menssage: <span>$messagedes<span></p>
+    <p>Author: <span>$name<span></p>
+    </body>";
 
-    $ref->SendEmail('email',"Admin",$subject,$message);
+    $ref->SendEmail('email.com',"Admin",$subject,$message);
     header("Location: index.php");
 ?>

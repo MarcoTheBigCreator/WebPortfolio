@@ -14,11 +14,11 @@ switch ($_GET["op"]){
 
 		if (empty($id_designskill)){
 			$rspta = $designskills -> insertar3($skill, $percentage, $language);
-            echo $rspta ? "design skill registered" : "design skill not registered";
+            echo $rspta ? "Design Skill Registered" : "Design Skill not Registered";
 		}
 		else {
             $rspta = $designskills -> editar3($id_designskill, $skill, $percentage, $language);
-            echo $rspta ? "design skill updated" : "design skill not updated";
+            echo $rspta ? "Design Skill Updated" : "Design Skill not Updated";
 		}
 
     break;
@@ -30,6 +30,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar3':
+		$rspta = $designskills->eliminar3($id_designskill);
+	break;
+
 	case 'listar3':
 		$rspta=$designskills->listar3();
  		//Vamos a declarar un array
@@ -37,7 +41,8 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar3('.$reg->id_designskill.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar3('.$reg->id_designskill.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger ml-3" onclick="eliminar3('.$reg->id_designskill.')"><i class="fa fa-trash"></i></button>',
                 "1"=>$reg->skill,
                 "2"=>$reg->percentage,
                 "3"=>$reg->language

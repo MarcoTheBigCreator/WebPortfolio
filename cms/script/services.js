@@ -100,7 +100,19 @@ function mostrar8(id_service) {
         $("#service").val(data.service);
         $("#description").val(data.description);
         $("#language").val(data.language);
-    })
+    });
+}
+
+function eliminar8(id_service) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/services.php?op=eliminar8", { id_service: id_service }, function(data, status) {
+            listar8(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
 }
 
 init();

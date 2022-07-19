@@ -37,6 +37,12 @@ Class designskills
         $sql = "SELECT*FROM designskills";
         return ejecutarCOnsulta($sql);
     }
+
+    public function eliminar3($id_designskill)
+    {
+        $sql = "DELETE FROM designskills WHERE id_designskill = '$id_designskill'";
+        return ejecutarConsulta("$sql");
+    }
 }
 
 ?>

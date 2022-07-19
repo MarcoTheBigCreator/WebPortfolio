@@ -37,6 +37,12 @@ Class datafilter
         $sql = "SELECT*FROM datafilter";
         return ejecutarCOnsulta($sql);
     }
+
+    public function eliminar2($id_datafilter)
+    {
+        $sql = "DELETE FROM datafilter WHERE id_datafilter = '$id_datafilter'";
+        return ejecutarConsulta("$sql");
+    }
 }
 
 ?>

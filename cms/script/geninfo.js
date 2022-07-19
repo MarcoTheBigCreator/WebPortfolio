@@ -104,7 +104,20 @@ function mostrar6(id_geninfo) {
         $("#age").val(data.age);
         $("#gender").val(data.gender);
         $("#language").val(data.language);
-    })
+    });
+}
+
+
+function eliminar6(id_geninfo) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/geninfo.php?op=eliminar6", { id_geninfo: id_geninfo }, function(data, status) {
+            listar6(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
 }
 
 init();

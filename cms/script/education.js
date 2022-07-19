@@ -102,7 +102,20 @@ function mostrar4(id_education) {
         $("#nameschool").val(data.nameschool);
         $("#description").val(data.description);
         $("#language").val(data.language);
-    })
+    });
 }
+
+function eliminar4(id_education) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/education.php?op=eliminar4", { id_education: id_education }, function(data, status) {
+            listar4(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
+}
+
 
 init();

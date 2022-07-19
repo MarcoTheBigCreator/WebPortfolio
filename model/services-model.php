@@ -37,6 +37,12 @@ Class services
         $sql = "SELECT*FROM services";
         return ejecutarCOnsulta($sql);
     }
+
+    public function eliminar8($id_service)
+    {
+        $sql = "DELETE FROM services WHERE id_service = '$id_service'";
+        return ejecutarConsulta($sql);
+    }
 }
 
 ?>

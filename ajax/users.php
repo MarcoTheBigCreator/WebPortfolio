@@ -5,21 +5,22 @@ require_once "../model/users-model.php";
 $users = new users();
 
 $id_user=isset($_POST["id_user"])? limpiarCadena($_POST["id_user"]):"";
-$name=isset($_POST["name"])? limpiarCadena($_POST["name"]):"";
-$nickname=isset($_POST["nickname"])? limpiarCadena($_POST["nickname"]):"";
-$pass=isset($_POST["pass"])? limpiarCadena($_POST["pass"]):"";
-$type=isset($_POST["type"])? limpiarCadena($_POST["type"]):"";
+$user_name=isset($_POST["user_name"])? limpiarCadena($_POST["user_name"]):"";
+$user_nick=isset($_POST["user_nick"])? limpiarCadena($_POST["user_nick"]):"";
+$password=isset($_POST["password"])? limpiarCadena($_POST["password"]):"";
+$user_type=isset($_POST["user_type"])? limpiarCadena($_POST["user_type"]):"";
+$opcion=isset($_POST["op"])?$_POST["op"]:$_REQUEST["op"];
 
-switch ($_GET["op"]){
+switch ($opcion){
 	case 'guardaryeditar9':
 
 		if (empty($id_user)){
-			$rspta = $users -> insertar9($name, $nickname, $pass, $type);
-            echo $rspta ? "users registered" : "users not registered";
+			$rspta = $users -> insertar9($user_name, $user_nick, $password, $user_type);
+            echo $rspta ? "User registered" : "User not Registered";
 		}
 		else {
-            $rspta = $users -> editar9($id_user, $name, $nickname, $pass, $type);
-            echo $rspta ? "users updated" : "users not updated";
+            $rspta = $users -> editar9($id_user, $user_name, $user_nick, $password, $user_type);
+            echo $rspta ? "User Updated" : "User not Updated";
 		}
 
     break;
@@ -31,6 +32,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar9':
+		$rspta = $users->eliminar9($id_user);
+	break;
+
 	case 'listar9':
 		$rspta=$users->listar9();
  		//Vamos a declarar un array
@@ -38,11 +43,12 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar9('.$reg->id_user.')"><i class="fas fa-pencil-alt"></i></button>',
-                "1"=>$reg->name,
-                "2"=>$reg->nickname,
-                "3"=>$reg->pass,
-                "4"=>$reg->type
+                "0"=>'<button class="btn btn-warning" onclick="mostrar9('.$reg->id_user.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger" onclick="eliminar9('.$reg->id_user.')"><i class="fa fa-trash"></i></button>',
+                "1"=>$reg->user_name,
+                "2"=>$reg->user_nick,
+                "3"=>$reg->password,
+                "4"=>$reg->user_type
                 );
         }
         $results = array(
@@ -53,5 +59,28 @@ switch ($_GET["op"]){
         echo json_encode($results);
 
 	break;
+
+  case 'verificar':
+  $user_name=$_POST['logina'];
+  $user_key=$_POST['clavea'];
+  $rspta=$users->verificar($user_name,$user_key);
+
+  while ($row = $rspta->fetch_object()){
+    $user_arr[] = $row;
+    }
+
+   if ($user_arr)
+     {
+        //session_start();
+         //Declaramos las variables de sesión
+         $_SESSION["id_user"]=$user_arr[0]->id_user;
+         $_SESSION["user_name"]=$user_arr[0]->user_name;
+         $_SESSION['user_nick']=$user_arr[0]->user_nick;
+         $_SESSION['password']=$user_arr[0]->password;
+         $_SESSION['user_type']=$user_arr[0]->user_type;
+     }
+     //var_dump( $_SESSION["nombre"]);
+    echo json_encode(array('data'=>$user_arr));
+break;
 }
 ?>

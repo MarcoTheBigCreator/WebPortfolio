@@ -98,7 +98,19 @@ function mostrar3(id_designskill) {
         $("#skill").val(data.skill);
         $("#percentage").val(data.percentage);
         $("#language").val(data.language);
-    })
+    });
+}
+
+function eliminar3(id_designskill) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/designskills.php?op=eliminar3", { id_designskill: id_designskill }, function(data, status) {
+            listar3(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
 }
 
 init();

@@ -98,7 +98,19 @@ function mostrar2(id_datafilter) {
         $("#class").val(data.class);
         $("#filter").val(data.filter);
         $("#language").val(data.language);
-    })
+    });
+}
+
+function eliminar2(id_datafilter) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/datafilter.php?op=eliminar2", { id_datafilter: id_datafilter }, function(data, status) {
+            listar2(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
 }
 
 init();

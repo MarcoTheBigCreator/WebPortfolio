@@ -13,11 +13,11 @@ switch ($_GET["op"]){
 
 		if (empty($id_codingskill)){
 			$rspta = $codingskills -> insertar1($language, $percentage);
-            echo $rspta ? "codding skill registered" : "codding skill not registered";
+            echo $rspta ? "Coding Skill Registered" : "Coding Skill not Registered";
 		}
 		else {
             $rspta = $codingskills -> editar1($id_codingskill, $language, $percentage);
-            echo $rspta ? "codding skill updated" : "codding skill not updated";
+            echo $rspta ? "Coding Skill Updated" : "Coding Skill not Updated";
 		}
 
     break;
@@ -29,6 +29,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar1':
+		$rspta = $codingskills->eliminar1($id_codingskill);
+	break;
+
 	case 'listar1':
 		$rspta=$codingskills->listar1();
  		//Vamos a declarar un array
@@ -36,7 +40,8 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar1('.$reg->id_codingskill.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar1('.$reg->id_codingskill.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger ml-3" onclick="eliminar1('.$reg->id_codingskill.')"><i class="fa fa-trash"></i></button>',
                 "1"=>$reg->language,
                 "2"=>$reg->percentage
                 );

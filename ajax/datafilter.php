@@ -14,11 +14,11 @@ switch ($_GET["op"]){
 
 		if (empty($id_datafilter)){
 			$rspta = $datafilter -> insertar2($class, $filter, $language);
-            echo $rspta ? "data filter registered" : "data filter not registered";
+            echo $rspta ? "Data Filter Registered" : "Data Filter not Registered";
 		}
 		else {
             $rspta = $datafilter -> editar2($id_datafilter, $class, $filter ,$language);
-            echo $rspta ? "data filter updated" : "data filter not updated";
+            echo $rspta ? "Data Filter Updated" : "Data Filter not Updated";
 		}
 
     break;
@@ -30,6 +30,10 @@ switch ($_GET["op"]){
         break;
 	break;
 
+  case 'eliminar2':
+		$rspta = $datafilter->eliminar2($id_datafilter);
+	break;
+
 	case 'listar2':
 		$rspta=$datafilter->listar2();
  		//Vamos a declarar un array
@@ -37,7 +41,8 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar2('.$reg->id_datafilter.')"><i class="fas fa-pencil-alt"></i></button>',
+                "0"=>'<button class="btn btn-warning" onclick="mostrar2('.$reg->id_datafilter.')"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger ml-3" onclick="eliminar2('.$reg->id_datafilter.')"><i class="fa fa-trash"></i></button>',
                 "1"=>$reg->class,
                 "2"=>$reg->filter,
                 "3"=>$reg->language

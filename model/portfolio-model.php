@@ -37,6 +37,12 @@ Class portfolio
         $sql = "SELECT*FROM portfolio";
         return ejecutarCOnsulta($sql);
     }
+
+    public function eliminar7($id_portfolio)
+    {
+        $sql = "DELETE FROM portfolio WHERE id_portfolio = '$id_portfolio'";
+        return ejecutarConsulta($sql);
+    }
 }
 
 ?>

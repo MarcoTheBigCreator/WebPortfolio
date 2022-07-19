@@ -1,3 +1,7 @@
+<?php
+include '../config/validation.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +45,7 @@ include 'nav.php';
           <div class="col-md-12">
             <div class="box">
               <div class="box-header with-border">
-                <h1 class="box-title">Data Filter<button class="btn btn-success" id="btnagregar2" onclick="mostrarform2(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
+                <h1 class="box-title">Data Filter<button class="btn btn-success ml-4" id="btnagregar2" onclick="mostrarform2(true)"><i class="fa fa-plus-circle"></i> Agregar</button-->
                 </h1>
                 <div class="box-tools pull-right">
                 </div>
@@ -62,7 +66,7 @@ include 'nav.php';
                   </tfoot>
                 </table>
               </div>
-              <div class="panel-body" style="height: 400px;" id="formularioregistros2">
+              <div class="panel-body" id="formularioregistros2">
                 <form name="formulario2" id="formulario2" method="POST">
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Class:</label>

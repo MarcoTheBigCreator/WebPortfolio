@@ -102,7 +102,19 @@ function mostrar5(id_experience) {
         $("#namejob").val(data.namejob);
         $("#description").val(data.description);
         $("#language").val(data.language);
-    })
+    });
+}
+
+function eliminar5(id_experience) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/experience.php?op=eliminar5", { id_experience: id_experience }, function(data, status) {
+            listar5(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
 }
 
 init();

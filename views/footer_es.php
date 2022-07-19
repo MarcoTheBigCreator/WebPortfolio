@@ -1,6 +1,6 @@
 <div>
         <!-- Footer -->
-        <footer class="text-center text-white" style="background-color: #383c44">
+        <footer class="text-center text-white" style="background-color: #343a40">
             <!-- Grid container -->
             <div class="container">
                 <!-- Section: Links -->

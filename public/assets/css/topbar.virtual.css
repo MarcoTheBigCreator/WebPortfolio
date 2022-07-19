@@ -146,7 +146,7 @@
 
 .page-about .img-place {
     width: 280px;
-    height: 350px;
+    height: 342px;
     background-color: #dfe0e6;
     overflow: unset;
 }
@@ -290,7 +290,7 @@
 }
 
 .testi-carousel .item .img-place {
-    max-width: 350px;
+    max-width: 342px;
     height: 300px;
     background-color: #f4f5f8;
     border-radius: 4px;

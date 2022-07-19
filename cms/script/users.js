@@ -12,10 +12,10 @@ function init() {
 //Función limpiar
 function limpiar9() {
     $("#id_user").val("");
-    $("#name").val("");
-    $("#nickname").val("");
-    $("#pass").val("");
-    $("#type").val("");
+    $("#user_name").val("");
+    $("#user_nick").val("");
+    $("#password").val("");
+    $("#user_type").val("");
 }
 
 //Función mostrar formulario
@@ -96,11 +96,23 @@ function mostrar9(id_user) {
         mostrarform9(true);
 
         $("#id_user").val(data.id_user);
-        $("#name").val(data.name);
-        $("#nickname").val(data.nickname);
-        $("#pass").val(data.pass);
-        $("#type").val(data.type);
-    })
+        $("#user_name").val(data.user_name);
+        $("#user_nick").val(data.user_nick);
+        $("#password").val(data.password);
+        $("#user_type").val(data.user_type);
+    });
+}
+
+function eliminar9(id_user) {
+    var decision = window.confirm('Are you sure you want to delete this record?');
+    if (decision === true) {
+        $.post("../ajax/users.php?op=eliminar9", { id_user: id_user }, function(data, status) {
+            listar9(true);
+        })
+        window.alert('Record Deleted');
+    } else {
+        window.alert('Action canceled');
+    }
 }
 
 init();

@@ -273,7 +273,7 @@ a:active {
     text-align: center;
     font-size: 18px;
     border-radius: 50%;
-    background-color: #52565c;
+    background-color: #343a40;
     color: #fff;
     visibility: hidden;
     cursor: pointer;
@@ -1148,7 +1148,7 @@ a:active {
     display: block;
     margin: 0 auto;
     width: 100%;
-    max-width: 350px;
+    max-width: 342px;
     height: 100%;
     border-radius: 4px;
     overflow: hidden;

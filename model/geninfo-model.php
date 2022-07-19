@@ -38,6 +38,12 @@ Class geninfo
         $sql = "SELECT*FROM geninfo";
         return ejecutarCOnsulta($sql);
     }
+    
+    public function eliminar6($id_geninfo)
+    {
+        $sql = "DELETE FROM geninfo WHERE id_geninfo = '$id_geninfo'";
+        return ejecutarConsulta($sql);
+    }
 }
 
 ?>
